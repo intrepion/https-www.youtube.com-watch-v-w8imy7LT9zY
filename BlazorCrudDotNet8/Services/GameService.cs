@@ -10,6 +10,8 @@ public class GameService(ApplicationDbContext applicationDbContext) : IGameServi
 
     public async Task<List<Game>> GetAllGames()
     {
+        await Task.Delay(1000);
+
         var games = await _applicationDbContext.Games.ToListAsync();
 
         return games;
