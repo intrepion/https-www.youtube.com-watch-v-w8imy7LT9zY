@@ -8,6 +8,14 @@ public class GameService(ApplicationDbContext applicationDbContext) : IGameServi
 {
     private readonly ApplicationDbContext _applicationDbContext = applicationDbContext;
 
+    public async Task<Game> AddGame(Game game)
+    {
+        _applicationDbContext.Games.Add(game);
+        await _applicationDbContext.SaveChangesAsync();
+
+        return game;
+    }
+
     public async Task<List<Game>> GetAllGames()
     {
         await Task.Delay(1000);
