@@ -1,8 +1,8 @@
-using BlazorCrudDotNet8.Data;
-using BlazorCrudDotNet8.Entities;
+using BlazorCrudDotNet8.BusinessLogic.Data;
+using BlazorCrudDotNet8.BusinessLogic.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlazorCrudDotNet8.Services;
+namespace BlazorCrudDotNet8.BusinessLogic.Services;
 
 public class GameService(ApplicationDbContext applicationDbContext) : IGameService
 {

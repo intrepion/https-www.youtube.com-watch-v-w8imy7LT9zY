@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BlazorCrudDotNet8.Migrations
+namespace BlazorCrudDotNet8.BusinessLogic.Migrations
 {
     /// <inheritdoc />
     public partial class AddGameTable : Migration

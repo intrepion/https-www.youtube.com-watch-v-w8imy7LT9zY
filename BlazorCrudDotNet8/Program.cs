@@ -1,8 +1,8 @@
-﻿using BlazorCrudDotNet8.Client.Pages;
+﻿using BlazorCrudDotNet8.BusinessLogic.Data;
+using BlazorCrudDotNet8.BusinessLogic.Services;
+using BlazorCrudDotNet8.Client.Pages;
 using BlazorCrudDotNet8.Components;
 using BlazorCrudDotNet8.Components.Account;
-using BlazorCrudDotNet8.Data;
-using BlazorCrudDotNet8.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +13,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddControllers();
+
+builder.Services.AddScoped(http => new HttpClient
+{
+    BaseAddress = new Uri(builder.Configuration.GetSection("BaseUri").Value!),
+});
 
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<IdentityUserAccessor>();
@@ -57,6 +64,8 @@ else
 }
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.UseStaticFiles();
 app.UseAntiforgery();

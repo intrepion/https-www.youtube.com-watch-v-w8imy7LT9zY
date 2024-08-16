@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 using System.Text.Json;
+using BlazorCrudDotNet8.BusinessLogic.Data;
 using BlazorCrudDotNet8.Components.Account.Pages;
 using BlazorCrudDotNet8.Components.Account.Pages.Manage;
-using BlazorCrudDotNet8.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;

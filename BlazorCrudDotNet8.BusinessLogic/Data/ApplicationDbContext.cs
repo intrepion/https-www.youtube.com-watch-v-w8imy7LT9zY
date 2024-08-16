@@ -1,8 +1,8 @@
-﻿using BlazorCrudDotNet8.Entities;
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlazorCrudDotNet8.Data;
+namespace BlazorCrudDotNet8.BusinessLogic.Data;
 
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext<ApplicationUser>(options)
 {

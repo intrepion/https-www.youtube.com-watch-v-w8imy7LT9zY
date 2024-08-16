@@ -1,4 +1,4 @@
-﻿using BlazorCrudDotNet8.Data;
+﻿using BlazorCrudDotNet8.BusinessLogic.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
