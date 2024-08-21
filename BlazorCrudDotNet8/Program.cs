@@ -1,7 +1,7 @@
 ﻿using BlazorCrudDotNet8.Client.Pages;
 using BlazorCrudDotNet8.Components;
 using BlazorCrudDotNet8.Components.Account;
-using BlazorCrudDotNet8.Data;
+using BlazorCrudDotNet8.Shared.Entities;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +31,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddSignInManager()
     .AddDefaultTokenProviders();
