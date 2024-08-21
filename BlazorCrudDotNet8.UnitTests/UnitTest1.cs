@@ -1,4 +1,4 @@
-namespace BlazorCrudDotNet8.UnitTests;
+﻿namespace BlazorCrudDotNet8.UnitTests;
 
 public class Tests
 {
