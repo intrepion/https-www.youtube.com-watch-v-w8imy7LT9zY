@@ -1,5 +1,5 @@
+﻿using BlazorCrudDotNet8.Data;
 using Microsoft.AspNetCore.Identity;
-using BlazorCrudDotNet8.Data;
 
 namespace BlazorCrudDotNet8.Components.Account;
 

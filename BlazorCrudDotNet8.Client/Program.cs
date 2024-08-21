@@ -1,4 +1,4 @@
-using BlazorCrudDotNet8.Client;
+﻿using BlazorCrudDotNet8.Client;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
