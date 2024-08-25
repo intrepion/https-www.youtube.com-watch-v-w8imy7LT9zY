@@ -2,7 +2,7 @@ using BlazorCrudDotNet8.Shared.Entities;
 
 namespace BlazorCrudDotNet8.Shared.Services;
 
-public interface IClassNamePlaceholderService
+public interface IApplicationRoleService
 {
-    Task<List<ClassNamePlaceholder>> GetAllAsync();
+    Task<List<ApplicationRole>> GetAllAsync();
 }
