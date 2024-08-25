@@ -6,4 +6,5 @@ namespace BlazorCrudDotNet8.Shared.Data;
 
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext<ApplicationUser, ApplicationRole, string>(options)
 {
+    public DbSet<Game> Games { get; set; }
 }
