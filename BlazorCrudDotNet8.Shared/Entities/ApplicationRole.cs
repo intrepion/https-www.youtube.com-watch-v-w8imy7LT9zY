@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace AppNamePlaceholder.Shared.Entities;
+namespace BlazorCrudDotNet8.Shared.Entities;
 
 public class ApplicationRole : IdentityRole
 {
