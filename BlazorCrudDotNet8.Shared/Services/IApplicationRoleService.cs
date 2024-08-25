@@ -1,6 +1,6 @@
-using AppNamePlaceholder.Shared.Entities;
+using BlazorCrudDotNet8.Shared.Entities;
 
-namespace AppNamePlaceholder.Shared.Services;
+namespace BlazorCrudDotNet8.Shared.Services;
 
 public interface IClassNamePlaceholderService
 {
