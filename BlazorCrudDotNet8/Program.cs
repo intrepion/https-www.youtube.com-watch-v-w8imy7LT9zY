@@ -1,10 +1,10 @@
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using BlazorCrudDotNet8.Client.Pages;
+﻿using BlazorCrudDotNet8.Client.Pages;
 using BlazorCrudDotNet8.Components;
 using BlazorCrudDotNet8.Components.Account;
 using BlazorCrudDotNet8.Data;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
