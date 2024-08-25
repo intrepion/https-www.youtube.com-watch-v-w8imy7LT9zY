@@ -1,9 +1,9 @@
-﻿using AppNamePlaceholder.Client.Pages;
-using AppNamePlaceholder.Components;
-using AppNamePlaceholder.Components.Account;
-using AppNamePlaceholder.Shared.Data;
-using AppNamePlaceholder.Shared.Entities;
-using AppNamePlaceholder.Shared.Services;
+﻿using BlazorCrudDotNet8.Client.Pages;
+using BlazorCrudDotNet8.Components;
+using BlazorCrudDotNet8.Components.Account;
+using BlazorCrudDotNet8.Shared.Data;
+using BlazorCrudDotNet8.Shared.Entities;
+using BlazorCrudDotNet8.Shared.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -65,7 +65,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(AppNamePlaceholder.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(BlazorCrudDotNet8.Client._Imports).Assembly);
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();
