@@ -1,4 +1,4 @@
-namespace BlazorCrudDotNet8.Shared.Entities;
+﻿namespace BlazorCrudDotNet8.Shared.Entities;
 
 public class Game
 {

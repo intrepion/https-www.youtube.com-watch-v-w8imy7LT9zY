@@ -1,4 +1,4 @@
-using BlazorCrudDotNet8.Shared.Entities;
+﻿using BlazorCrudDotNet8.Shared.Entities;
 using BlazorCrudDotNet8.Shared.Services;
 using Microsoft.AspNetCore.Mvc;
 

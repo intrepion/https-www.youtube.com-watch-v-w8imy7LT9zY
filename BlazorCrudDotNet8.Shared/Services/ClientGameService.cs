@@ -1,4 +1,4 @@
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 using BlazorCrudDotNet8.Shared.Entities;
 
 namespace BlazorCrudDotNet8.Shared.Services;
