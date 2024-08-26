@@ -11,6 +11,8 @@ public class GameGuidService(ApplicationDbContext applicationDbContext) : IGameG
 
     public async Task<List<GameGuid>> GetAllAsync()
     {
+        await Task.Delay(1000);
+
         var gameGuids = await _applicationDbContext.GameGuids.ToListAsync();
 
         return gameGuids;

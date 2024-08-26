@@ -11,6 +11,8 @@ public class GameStringService(ApplicationDbContext applicationDbContext) : IGam
 
     public async Task<List<GameString>> GetAllAsync()
     {
+        await Task.Delay(1000);
+
         var gameStrings = await _applicationDbContext.GameStrings.ToListAsync();
 
         return gameStrings;

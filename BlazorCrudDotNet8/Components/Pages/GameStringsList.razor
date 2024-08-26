@@ -1,0 +1,32 @@
+@page "/game-strings"
+@inject IGameStringService GameStringService
+@attribute [StreamRendering]
+
+<h3>Game Strings List</h3>
+
+@if (gameStrings == null)
+{
+    <span>Loading...</span>
+}
+else if (gameStrings.Count == 0)
+{
+    <span>No game strings found.</span>
+}
+else
+{
+    <ul>
+        @foreach (var gameString in gameStrings)
+        {
+            <li>@gameString.Name</li>
+        }
+    </ul>
+}
+
+@code {
+    List<GameString>? gameStrings = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        gameStrings = await GameStringService.GetAllAsync();
+    }
+}

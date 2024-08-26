@@ -1,0 +1,32 @@
+@page "/game-guids"
+@inject IGameGuidService GameGuidService
+@attribute [StreamRendering]
+
+<h3>Game Guids List</h3>
+
+@if (gameGuids == null)
+{
+    <span>Loading...</span>
+}
+else if (gameGuids.Count == 0)
+{
+    <span>No game guids found.</span>
+}
+else
+{
+    <ul>
+        @foreach (var gameGuid in gameGuids)
+        {
+            <li>@gameGuid.Name</li>
+        }
+    </ul>
+}
+
+@code {
+    List<GameGuid>? gameGuids = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        gameGuids = await GameGuidService.GetAllAsync();
+    }
+}

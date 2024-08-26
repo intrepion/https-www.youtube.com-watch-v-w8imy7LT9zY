@@ -1,0 +1,32 @@
+@page "/game-ints"
+@inject IGameIntService GameIntService
+@attribute [StreamRendering]
+
+<h3>Game Ints List</h3>
+
+@if (gameInts == null)
+{
+    <span>Loading...</span>
+}
+else if (gameInts.Count == 0)
+{
+    <span>No game ints found.</span>
+}
+else
+{
+    <ul>
+        @foreach (var gameInt in gameInts)
+        {
+            <li>@gameInt.Name</li>
+        }
+    </ul>
+}
+
+@code {
+    List<GameInt>? gameInts = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        gameInts = await GameIntService.GetAllAsync();
+    }
+}
