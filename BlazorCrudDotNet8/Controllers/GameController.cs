@@ -17,4 +17,28 @@ public class GameController(IGameService gameService) : ControllerBase
 
         return Ok(addedGame);
     }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<Game>> Delete(Guid id)
+    {
+        var result = await _gameService.DeleteAsync(id);
+
+        return Ok(result);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<Game>> Edit(Guid id, Game game)
+    {
+        var updatedGame = await _gameService.EditAsync(id, game);
+
+        return Ok(updatedGame);
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<Game>> GetById(Guid id)
+    {
+        var game = await _gameService.GetByIdAsync(id);
+
+        return Ok(game);
+    }
 }
