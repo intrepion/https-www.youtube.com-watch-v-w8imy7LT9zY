@@ -1,8 +1,8 @@
-using AppNamePlaceholder.Shared.Data;
-using AppNamePlaceholder.Shared.Entities;
+using BlazorCrudDotNet8.Shared.Data;
+using BlazorCrudDotNet8.Shared.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace AppNamePlaceholder.Shared.Services;
+namespace BlazorCrudDotNet8.Shared.Services;
 
 public class ApplicationRoleService(ApplicationDbContext applicationDbContext) : IApplicationRoleService
 {
