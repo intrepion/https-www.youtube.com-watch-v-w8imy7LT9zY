@@ -2,6 +2,8 @@
 using BlazorCrudDotNet8.Components;
 using BlazorCrudDotNet8.Components.Account;
 using BlazorCrudDotNet8.Data;
+using BlazorCrudDotNet8.Services.Interfaces;
+using BlazorCrudDotNet8.Services.Server;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +38,10 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
     .AddDefaultTokenProviders();
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+
+builder.Services.AddScoped<IGameGuidService, GameGuidService>();
+builder.Services.AddScoped<IGameIntService, GameIntService>();
+builder.Services.AddScoped<IGameStringService, GameStringService>();
 
 var app = builder.Build();
 
