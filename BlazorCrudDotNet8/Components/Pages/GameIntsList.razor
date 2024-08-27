@@ -1,8 +1,6 @@
 @page "/game-ints"
 @inject IGameIntService GameIntService
-@inject NavigationManager NavigationManager
 @attribute [StreamRendering]
-@rendermode @(new InteractiveServerRenderMode(false))
 
 <h3>Game Ints List</h3>
 
@@ -23,7 +21,7 @@ else
         }
     </ul>
 }
-<button @onclick="Create" class="btn btn-primary">Create</button>
+<CreateButton Href="/game-ints-edit" />
 
 @code {
     List<GameInt>? gameInts = null;
@@ -31,10 +29,5 @@ else
     protected override async Task OnInitializedAsync()
     {
         gameInts = await GameIntService.GetAllAsync();
-    }
-
-    void Create()
-    {
-        NavigationManager.NavigateTo("/game-guids-edit");
     }
 }

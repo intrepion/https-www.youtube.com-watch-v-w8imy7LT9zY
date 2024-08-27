@@ -1,8 +1,6 @@
 @page "/game-strings"
 @inject IGameStringService GameStringService
-@inject NavigationManager NavigationManager
 @attribute [StreamRendering]
-@rendermode @(new InteractiveServerRenderMode(false))
 
 <h3>Game Strings List</h3>
 
@@ -23,7 +21,7 @@ else
         }
     </ul>
 }
-<button @onclick="Create" class="btn btn-primary">Create</button>
+<CreateButton Href="/game-strings-edit" />
 
 @code {
     List<GameString>? gameStrings = null;
@@ -31,10 +29,5 @@ else
     protected override async Task OnInitializedAsync()
     {
         gameStrings = await GameStringService.GetAllAsync();
-    }
-
-    void Create()
-    {
-        NavigationManager.NavigateTo("/game-guids-edit");
     }
 }

@@ -1,0 +1,14 @@
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<button @onclick="Create" class="btn btn-primary">Create</button>
+
+@code {
+    [Parameter]
+    public required string Href { get; set; }
+
+    void Create()
+    {
+        NavigationManager.NavigateTo(Href);
+    }
+}
