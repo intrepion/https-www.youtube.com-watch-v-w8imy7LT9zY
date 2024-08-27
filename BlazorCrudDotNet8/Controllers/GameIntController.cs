@@ -34,6 +34,14 @@ public class GameIntController(IGameIntService gameIntService) : ControllerBase
         return Ok(updatedGame);
     }
 
+    [HttpGet]
+    public async Task<ActionResult<GameInt>> GetAll()
+    {
+        var games = await _gameIntService.GetAllAsync();
+
+        return Ok(games);
+    }
+
     [HttpGet("{id}")]
     public async Task<ActionResult<GameInt>> GetById(int id)
     {

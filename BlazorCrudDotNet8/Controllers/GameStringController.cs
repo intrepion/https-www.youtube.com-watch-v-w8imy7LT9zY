@@ -34,6 +34,14 @@ public class GameStringController(IGameStringService gameStringService) : Contro
         return Ok(updatedGame);
     }
 
+    [HttpGet]
+    public async Task<ActionResult<GameString>> GetAll()
+    {
+        var games = await _gameStringService.GetAllAsync();
+
+        return Ok(games);
+    }
+
     [HttpGet("{id}")]
     public async Task<ActionResult<GameString>> GetById(string id)
     {

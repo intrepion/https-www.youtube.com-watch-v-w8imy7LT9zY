@@ -29,9 +29,11 @@ public class ClientGameIntService(HttpClient httpClient) : IGameIntService
         return await result.Content.ReadFromJsonAsync<GameInt>();
     }
 
-    public Task<List<GameInt>> GetAllAsync()
+    public async Task<List<GameInt>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var result = await _httpClient.GetFromJsonAsync<List<GameInt>>("/api/gameInt");
+
+        return result;
     }
 
     public async Task<GameInt> GetByIdAsync(int id)

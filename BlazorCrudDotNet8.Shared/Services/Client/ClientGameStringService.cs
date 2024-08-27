@@ -29,9 +29,11 @@ public class ClientGameStringService(HttpClient httpClient) : IGameStringService
         return await result.Content.ReadFromJsonAsync<GameString>();
     }
 
-    public Task<List<GameString>> GetAllAsync()
+    public async Task<List<GameString>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var result = await _httpClient.GetFromJsonAsync<List<GameString>>("/api/gameString");
+
+        return result;
     }
 
     public async Task<GameString> GetByIdAsync(string id)
