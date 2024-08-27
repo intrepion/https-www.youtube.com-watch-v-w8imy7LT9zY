@@ -17,11 +17,17 @@ else
     <ul>
         @foreach (var gameGuid in gameGuids)
         {
-            <li>@gameGuid.Name</li>
+            <li>
+                @gameGuid.Name
+                @if (gameGuid.Id != null)
+                {
+                    <NavButton Href="@("/game-guids-edit/" + ((Guid)gameGuid.Id).ToString())" Name="Edit" />
+                }
+            </li>
         }
     </ul>
 }
-<CreateButton Href="/game-guids-edit" />
+<NavButton Href="/game-guids-edit" Name="Create" />
 
 @code {
     List<GameGuid>? gameGuids = null;

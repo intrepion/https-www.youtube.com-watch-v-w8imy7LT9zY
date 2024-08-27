@@ -17,4 +17,28 @@ public class GameStringController(IGameStringService gameStringService) : Contro
 
         return Ok(addedGame);
     }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<GameString>> Delete(string id)
+    {
+        var result = await _gameStringService.DeleteAsync(id);
+
+        return Ok(result);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<GameString>> Edit(string id, GameString gameString)
+    {
+        var updatedGame = await _gameStringService.EditAsync(id, gameString);
+
+        return Ok(updatedGame);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<GameString>> GetById(string id)
+    {
+        var game = await _gameStringService.GetByIdAsync(id);
+
+        return Ok(game);
+    }
 }

@@ -15,8 +15,29 @@ public class ClientGameStringService(HttpClient httpClient) : IGameStringService
         return await result.Content.ReadFromJsonAsync<GameString>();
     }
 
+    public async Task<bool> DeleteAsync(string id)
+    {
+        var result = await _httpClient.DeleteAsync($"/api/gameString/{id}");
+
+        return await result.Content.ReadFromJsonAsync<bool>();
+    }
+
+    public async Task<GameString> EditAsync(string id, GameString gameString)
+    {
+        var result = await _httpClient.PutAsJsonAsync($"/api/gameString/{id}", gameString);
+
+        return await result.Content.ReadFromJsonAsync<GameString>();
+    }
+
     public Task<List<GameString>> GetAllAsync()
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<GameString> GetByIdAsync(string id)
+    {
+        var result = await _httpClient.GetFromJsonAsync<GameString>($"/api/gameString/{id}");
+
+        return result;
     }
 }

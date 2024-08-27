@@ -17,6 +17,36 @@ public class GameIntService(ApplicationDbContext applicationDbContext) : IGameIn
         return gameInt;
     }
 
+    public async Task<bool> DeleteAsync(int id)
+    {
+        var dbGameInt = await _applicationDbContext.GameInts.FindAsync(id);
+
+        if (dbGameInt == null)
+        {
+            return false;
+        }
+
+        _applicationDbContext.Remove(dbGameInt);
+        await _applicationDbContext.SaveChangesAsync();
+
+        return true;
+    }
+
+    public async Task<GameInt> EditAsync(int id, GameInt gameInt)
+    {
+        var dbGameInt = await _applicationDbContext.GameInts.FindAsync(id);
+
+        if (dbGameInt == null)
+        {
+            throw new Exception("Game guid not found.");
+        }
+
+        dbGameInt.Name = gameInt.Name;
+        await _applicationDbContext.SaveChangesAsync();
+
+        return dbGameInt;
+    }
+
     public async Task<List<GameInt>> GetAllAsync()
     {
         await Task.Delay(1000);
@@ -24,5 +54,10 @@ public class GameIntService(ApplicationDbContext applicationDbContext) : IGameIn
         var gameInts = await _applicationDbContext.GameInts.ToListAsync();
 
         return gameInts;
+    }
+
+    public async Task<GameInt> GetByIdAsync(int id)
+    {
+        return await _applicationDbContext.GameInts.FindAsync(id);
     }
 }

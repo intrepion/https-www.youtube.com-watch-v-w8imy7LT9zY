@@ -3,12 +3,23 @@
 @inject IGameIntService GameIntService
 @rendermode InteractiveAuto
 
-<h3>Create Game Ints</h3>
+@if (Id == null)
+{
+    <h3>Create Game Ints</h3>
+}
+else
+{
+    <h3>Edit @gameInt.Name</h3>
+}
 
 <EditForm Model="gameInt" OnSubmit="HandleSubmit">
     <label>Name</label>
     <InputText @bind-Value="gameInt.Name">@gameInt.Name</InputText>
     <button type="submit" class="btn btn-primary">Submit</button>
+    @if (Id != null)
+    {
+        <button @onclick="Delete" type="button" class="btn btn-danger">Delete</button>
+    }
 </EditForm>
 
 @code {
@@ -16,8 +27,25 @@
     public int? Id { get; set; }
     GameInt gameInt { get; set; } = new GameInt { Name = string.Empty };
 
+    protected override async Task OnParametersSetAsync()
+    {
+        gameInt = await GameIntService.GetByIdAsync((int)Id);
+    }
+
     async Task HandleSubmit()
     {
-        await GameIntService.AddAsync(gameInt);
+        if (Id == null)
+        {
+            await GameIntService.AddAsync(gameInt);
+        }
+        else
+        {
+            await GameIntService.EditAsync((int)Id, gameInt);
+        }
+    }
+
+    async Task Delete()
+    {
+        await GameIntService.DeleteAsync((int)Id);
     }
 }

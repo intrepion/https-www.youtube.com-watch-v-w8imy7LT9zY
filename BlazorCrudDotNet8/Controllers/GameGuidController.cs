@@ -17,4 +17,28 @@ public class GameGuidController(IGameGuidService gameGuidService) : ControllerBa
 
         return Ok(addedGame);
     }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<GameGuid>> Delete(Guid id)
+    {
+        var result = await _gameGuidService.DeleteAsync(id);
+
+        return Ok(result);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<GameGuid>> Edit(Guid id, GameGuid gameGuid)
+    {
+        var updatedGame = await _gameGuidService.EditAsync(id, gameGuid);
+
+        return Ok(updatedGame);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<GameGuid>> GetById(Guid id)
+    {
+        var game = await _gameGuidService.GetByIdAsync(id);
+
+        return Ok(game);
+    }
 }

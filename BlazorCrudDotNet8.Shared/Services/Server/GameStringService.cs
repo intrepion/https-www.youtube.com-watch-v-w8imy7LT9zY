@@ -17,6 +17,36 @@ public class GameStringService(ApplicationDbContext applicationDbContext) : IGam
         return gameString;
     }
 
+    public async Task<bool> DeleteAsync(string id)
+    {
+        var dbGameString = await _applicationDbContext.GameStrings.FindAsync(id);
+
+        if (dbGameString == null)
+        {
+            return false;
+        }
+
+        _applicationDbContext.Remove(dbGameString);
+        await _applicationDbContext.SaveChangesAsync();
+
+        return true;
+    }
+
+    public async Task<GameString> EditAsync(string id, GameString gameString)
+    {
+        var dbGameString = await _applicationDbContext.GameStrings.FindAsync(id);
+
+        if (dbGameString == null)
+        {
+            throw new Exception("Game guid not found.");
+        }
+
+        dbGameString.Name = gameString.Name;
+        await _applicationDbContext.SaveChangesAsync();
+
+        return dbGameString;
+    }
+
     public async Task<List<GameString>> GetAllAsync()
     {
         await Task.Delay(1000);
@@ -24,5 +54,10 @@ public class GameStringService(ApplicationDbContext applicationDbContext) : IGam
         var gameStrings = await _applicationDbContext.GameStrings.ToListAsync();
 
         return gameStrings;
+    }
+
+    public async Task<GameString> GetByIdAsync(string id)
+    {
+        return await _applicationDbContext.GameStrings.FindAsync(id);
     }
 }

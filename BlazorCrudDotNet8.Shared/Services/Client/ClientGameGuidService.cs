@@ -15,8 +15,29 @@ public class ClientGameGuidService(HttpClient httpClient) : IGameGuidService
         return await result.Content.ReadFromJsonAsync<GameGuid>();
     }
 
+    public async Task<bool> DeleteAsync(Guid id)
+    {
+        var result = await _httpClient.DeleteAsync($"/api/gameGuid/{id}");
+
+        return await result.Content.ReadFromJsonAsync<bool>();
+    }
+
+    public async Task<GameGuid> EditAsync(Guid id, GameGuid gameGuid)
+    {
+        var result = await _httpClient.PutAsJsonAsync($"/api/gameGuid/{id}", gameGuid);
+
+        return await result.Content.ReadFromJsonAsync<GameGuid>();
+    }
+
     public Task<List<GameGuid>> GetAllAsync()
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<GameGuid> GetByIdAsync(Guid id)
+    {
+        var result = await _httpClient.GetFromJsonAsync<GameGuid>($"/api/gameGuid/{id}");
+
+        return result;
     }
 }

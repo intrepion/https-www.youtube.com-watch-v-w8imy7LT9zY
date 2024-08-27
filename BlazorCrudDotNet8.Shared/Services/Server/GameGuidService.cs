@@ -17,6 +17,36 @@ public class GameGuidService(ApplicationDbContext applicationDbContext) : IGameG
         return gameGuid;
     }
 
+    public async Task<bool> DeleteAsync(Guid id)
+    {
+        var dbGameGuid = await _applicationDbContext.GameGuids.FindAsync(id);
+
+        if (dbGameGuid == null)
+        {
+            return false;
+        }
+
+        _applicationDbContext.Remove(dbGameGuid);
+        await _applicationDbContext.SaveChangesAsync();
+
+        return true;
+    }
+
+    public async Task<GameGuid> EditAsync(Guid id, GameGuid gameGuid)
+    {
+        var dbGameGuid = await _applicationDbContext.GameGuids.FindAsync(id);
+
+        if (dbGameGuid == null)
+        {
+            throw new Exception("Game guid not found.");
+        }
+
+        dbGameGuid.Name = gameGuid.Name;
+        await _applicationDbContext.SaveChangesAsync();
+
+        return dbGameGuid;
+    }
+
     public async Task<List<GameGuid>> GetAllAsync()
     {
         await Task.Delay(1000);
@@ -24,5 +54,10 @@ public class GameGuidService(ApplicationDbContext applicationDbContext) : IGameG
         var gameGuids = await _applicationDbContext.GameGuids.ToListAsync();
 
         return gameGuids;
+    }
+
+    public async Task<GameGuid> GetByIdAsync(Guid id)
+    {
+        return await _applicationDbContext.GameGuids.FindAsync(id);
     }
 }
