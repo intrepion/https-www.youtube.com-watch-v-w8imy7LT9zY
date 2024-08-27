@@ -9,6 +9,14 @@ public class GameStringService(ApplicationDbContext applicationDbContext) : IGam
 {
     private readonly ApplicationDbContext _applicationDbContext = applicationDbContext;
 
+    public async Task<GameString> AddAsync(GameString gameString)
+    {
+        _applicationDbContext.GameStrings.Add(gameString);
+        await _applicationDbContext.SaveChangesAsync();
+
+        return gameString;
+    }
+
     public async Task<List<GameString>> GetAllAsync()
     {
         await Task.Delay(1000);

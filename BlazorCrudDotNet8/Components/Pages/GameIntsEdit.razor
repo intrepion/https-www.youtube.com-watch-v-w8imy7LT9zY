@@ -1,9 +1,10 @@
 @page "/game-ints-edit"
 @page "/game-ints-edit/{id:int}"
+@inject IGameIntService GameIntService
 
 <h3>Create Game Ints</h3>
 
-<EditForm Model="gameInt" OnSubmit="HandleSubmit">
+<EditForm Model="gameInt" OnSubmit="HandleSubmit" FormName="editGameInt">
     <label>Name</label>
     <InputText @bind-Value="gameInt.Name">@gameInt.Name</InputText>
     <button type="submit" class="btn btn-primary">Submit</button>
@@ -12,10 +13,11 @@
 @code {
     [Parameter]
     public int? Id { get; set; }
-    GameInt gameInt = new GameInt { Name = string.Empty };
+    [SupplyParameterFromForm]
+    GameInt gameInt { get; set; } = new GameInt { Name = string.Empty };
 
     async Task HandleSubmit()
     {
-        //
+        await GameIntService.AddAsync(gameInt);
     }
 }

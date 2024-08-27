@@ -9,6 +9,14 @@ public class GameGuidService(ApplicationDbContext applicationDbContext) : IGameG
 {
     private readonly ApplicationDbContext _applicationDbContext = applicationDbContext;
 
+    public async Task<GameGuid> AddAsync(GameGuid gameGuid)
+    {
+        _applicationDbContext.GameGuids.Add(gameGuid);
+        await _applicationDbContext.SaveChangesAsync();
+
+        return gameGuid;
+    }
+
     public async Task<List<GameGuid>> GetAllAsync()
     {
         await Task.Delay(1000);

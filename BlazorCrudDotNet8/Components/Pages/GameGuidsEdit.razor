@@ -1,9 +1,10 @@
 @page "/game-guids-edit"
 @page "/game-guids-edit/{id:guid}"
+@inject IGameGuidService GameGuidService
 
 <h3>Create Game Guids</h3>
 
-<EditForm Model="gameGuid" OnSubmit="HandleSubmit">
+<EditForm Model="gameGuid" OnSubmit="HandleSubmit" FormName="editGameGuid">
     <label>Name</label>
     <InputText @bind-Value="gameGuid.Name">@gameGuid.Name</InputText>
     <button type="submit" class="btn btn-primary">Submit</button>
@@ -12,10 +13,11 @@
 @code {
     [Parameter]
     public Guid? Id { get; set; }
-    GameGuid gameGuid = new GameGuid { Name = string.Empty };
+    [SupplyParameterFromForm]
+    GameGuid gameGuid { get; set; } = new GameGuid { Name = string.Empty };
 
     async Task HandleSubmit()
     {
-        //
+        await GameGuidService.AddAsync(gameGuid);
     }
 }
