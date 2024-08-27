@@ -1,4 +1,4 @@
-﻿using BlazorCrudDotNet8.Shared.Data;
+﻿using BlazorCrudDotNet8.Shared.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace BlazorCrudDotNet8.Components.Account;

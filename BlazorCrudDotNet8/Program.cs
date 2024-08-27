@@ -2,6 +2,7 @@
 using BlazorCrudDotNet8.Components;
 using BlazorCrudDotNet8.Components.Account;
 using BlazorCrudDotNet8.Shared.Data;
+using BlazorCrudDotNet8.Shared.Entities;
 using BlazorCrudDotNet8.Shared.Services.Interfaces;
 using BlazorCrudDotNet8.Shared.Services.Server;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -46,6 +47,8 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
+builder.Services.AddScoped<IApplicationRoleService, ApplicationRoleService>();
+builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
 builder.Services.AddScoped<IGameGuidService, GameGuidService>();
 builder.Services.AddScoped<IGameIntService, GameIntService>();
 builder.Services.AddScoped<IGameStringService, GameStringService>();

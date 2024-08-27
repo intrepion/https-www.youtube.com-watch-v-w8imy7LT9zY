@@ -1,0 +1,39 @@
+@page "/application-users"
+@inject IApplicationUserService ApplicationUserService
+@attribute [StreamRendering]
+
+<h3>Application Users List</h3>
+
+@if (applicationUsers == null)
+{
+    <span>Loading...</span>
+}
+else if (applicationUsers.Count == 0)
+{
+    <span>No application users found.</span>
+}
+else
+{
+    <ul>
+        @foreach (var applicationUser in applicationUsers)
+        {
+            <li>
+                @applicationUser.Email
+                @if (applicationUser.Id != null)
+                {
+                    <NavButton Href="@("/application-users-edit/" + applicationUser.Id)" Name="Edit" />
+                }
+            </li>
+        }
+    </ul>
+}
+<NavButton Href="/application-users-edit" Name="Create" />
+
+@code {
+    List<ApplicationUser>? applicationUsers = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        applicationUsers = await ApplicationUserService.GetAllAsync();
+    }
+}

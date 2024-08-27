@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Security.Claims;
 using BlazorCrudDotNet8.Client;
-using BlazorCrudDotNet8.Shared.Data;
+using BlazorCrudDotNet8.Shared.Entities;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;

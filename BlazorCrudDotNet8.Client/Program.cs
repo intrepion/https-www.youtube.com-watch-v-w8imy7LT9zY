@@ -14,6 +14,8 @@ builder.Services.AddScoped(http => new HttpClient
 {
     BaseAddress = new Uri(builder.HostEnvironment.BaseAddress),
 });
+
+builder.Services.AddScoped<IApplicationUserService, ClientApplicationUserService>();
 builder.Services.AddScoped<IGameGuidService, ClientGameGuidService>();
 builder.Services.AddScoped<IGameIntService, ClientGameIntService>();
 builder.Services.AddScoped<IGameStringService, ClientGameStringService>();

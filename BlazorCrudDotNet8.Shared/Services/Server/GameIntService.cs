@@ -49,8 +49,6 @@ public class GameIntService(ApplicationDbContext applicationDbContext) : IGameIn
 
     public async Task<List<GameInt>> GetAllAsync()
     {
-        await Task.Delay(1000);
-
         var gameInts = await _applicationDbContext.GameInts.ToListAsync();
 
         return gameInts;
