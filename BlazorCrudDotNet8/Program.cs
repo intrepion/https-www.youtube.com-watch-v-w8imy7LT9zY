@@ -1,9 +1,9 @@
 ﻿using BlazorCrudDotNet8.Client.Pages;
 using BlazorCrudDotNet8.Components;
 using BlazorCrudDotNet8.Components.Account;
-using BlazorCrudDotNet8.Data;
-using BlazorCrudDotNet8.Services.Interfaces;
-using BlazorCrudDotNet8.Services.Server;
+using BlazorCrudDotNet8.Shared.Data;
+using BlazorCrudDotNet8.Shared.Services.Interfaces;
+using BlazorCrudDotNet8.Shared.Services.Server;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +26,13 @@ builder.Services.AddAuthentication(options =>
         options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
     })
     .AddIdentityCookies();
+
+builder.Services.AddControllers();
+
+builder.Services.AddScoped(http => new HttpClient
+{
+    BaseAddress = new Uri(builder.Configuration.GetSection("BaseUri").Value!),
+});
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -59,6 +66,8 @@ else
 }
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
