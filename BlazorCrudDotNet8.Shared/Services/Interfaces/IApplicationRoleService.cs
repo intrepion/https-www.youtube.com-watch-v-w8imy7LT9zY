@@ -1,6 +1,6 @@
-﻿using AppNamePlaceholder.Shared.Entities;
+﻿using BlazorCrudDotNet8.Shared.Entities;
 
-namespace AppNamePlaceholder.Shared.Services.Interfaces;
+namespace BlazorCrudDotNet8.Shared.Services.Interfaces;
 
 public interface IApplicationRoleService
 {
