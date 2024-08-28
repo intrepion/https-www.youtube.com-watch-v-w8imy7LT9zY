@@ -1,9 +1,9 @@
-﻿using AppNamePlaceholder.Shared.Data;
-using AppNamePlaceholder.Shared.Entities;
-using AppNamePlaceholder.Shared.Services.Interfaces;
+﻿using BlazorCrudDotNet8.Shared.Data;
+using BlazorCrudDotNet8.Shared.Entities;
+using BlazorCrudDotNet8.Shared.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace AppNamePlaceholder.Shared.Services.Server;
+namespace BlazorCrudDotNet8.Shared.Services.Server;
 
 public class ApplicationUserService(ApplicationDbContext applicationDbContext) : IApplicationUserService
 {
