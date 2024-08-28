@@ -2,7 +2,7 @@
 
 namespace BlazorCrudDotNet8.Shared.Entities;
 
-public class ApplicationRole : IdentityRole
+public class ApplicationUserLogin : IdentityUserLogin<string>
 {
     public ApplicationUser? ApplicationUserUpdatedBy { get; set; }
 }

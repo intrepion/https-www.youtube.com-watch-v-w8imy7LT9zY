@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BlazorCrudDotNet8.Shared.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BlazorCrudDotNet8.Shared.Entities;
+namespace BlazorCrudDotNet8.Shared.Entities.Configuration;
 
 public class ApplicationUserEntityTypeConfiguration : IEntityTypeConfiguration<ApplicationUser>
 {
