@@ -1,8 +1,8 @@
 ﻿using System.Net.Http.Json;
-using AppNamePlaceholder.Shared.Entities;
-using AppNamePlaceholder.Shared.Services.Interfaces;
+using BlazorCrudDotNet8.Shared.Entities;
+using BlazorCrudDotNet8.Shared.Services.Interfaces;
 
-namespace AppNamePlaceholder.Shared.Services.Client;
+namespace BlazorCrudDotNet8.Shared.Services.Client;
 
 public class ClientApplicationRoleService(HttpClient httpClient) : IApplicationRoleService
 {
