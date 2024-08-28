@@ -1,8 +1,8 @@
-﻿using AppNamePlaceholder.Shared.Entities;
-using AppNamePlaceholder.Shared.Services.Interfaces;
+﻿using BlazorCrudDotNet8.Shared.Entities;
+using BlazorCrudDotNet8.Shared.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AppNamePlaceholder.Controllers;
+namespace BlazorCrudDotNet8.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
