@@ -1,6 +1,6 @@
-﻿using AppNamePlaceholder.BusinessLogic.Entities;
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities;
 
-namespace AppNamePlaceholder.BusinessLogic.Services;
+namespace BlazorCrudDotNet8.BusinessLogic.Services;
 
 public interface IAdminApplicationRoleService
 {
