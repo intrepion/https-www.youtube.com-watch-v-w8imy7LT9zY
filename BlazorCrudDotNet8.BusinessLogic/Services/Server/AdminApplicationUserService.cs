@@ -1,8 +1,8 @@
-﻿using AppNamePlaceholder.BusinessLogic.Data;
-using AppNamePlaceholder.BusinessLogic.Entities;
+﻿using BlazorCrudDotNet8.BusinessLogic.Data;
+using BlazorCrudDotNet8.BusinessLogic.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace AppNamePlaceholder.BusinessLogic.Services.Server;
+namespace BlazorCrudDotNet8.BusinessLogic.Services.Server;
 
 public class AdminApplicationUserService(ApplicationDbContext applicationDbContext) : IAdminApplicationUserService
 {
