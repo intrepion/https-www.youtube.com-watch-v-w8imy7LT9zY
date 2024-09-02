@@ -1,8 +1,8 @@
-﻿using AppNamePlaceholder.BusinessLogic.Entities;
-using AppNamePlaceholder.BusinessLogic.Services;
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities;
+using BlazorCrudDotNet8.BusinessLogic.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AppNamePlaceholder.Controllers;
+namespace BlazorCrudDotNet8.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
