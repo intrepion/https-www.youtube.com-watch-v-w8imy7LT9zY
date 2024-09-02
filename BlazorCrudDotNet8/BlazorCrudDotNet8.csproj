@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorCrudDotNet8.SharedComponents\BlazorCrudDotNet8.SharedComponents.csproj" />
+    <ProjectReference Include="..\BlazorCrudDotNet8.BusinessLogic\BlazorCrudDotNet8.BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>
