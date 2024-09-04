@@ -1,0 +1,33 @@
+{
+  "entities": [
+    {
+      "compositeKeys": [
+        {
+          "keys": [
+            {
+              "key": "NormalizedName"
+            }
+          ]
+        }
+      ],
+      "names": {
+        "entity": "Game",
+        "human": "Game",
+        "plural": "Games",
+        "table": "Games",
+        "url": "game"
+        },
+      "properties": [
+        {
+          "names": {
+            "human": "Name",
+            "property": "Name"
+          },
+          "normalized": true,
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
