@@ -1,0 +1,25 @@
+{
+  "entities": [
+    {
+      "class": "Game",
+      "human": "Game",
+      "keys": [
+        {
+          "column": "NormalizedName"
+        }
+      ],
+      "plural": "Games",
+      "properties": [
+        {
+          "name": "Name",
+          "normalized": true,
+          "required": true,
+          "subhuman": "Name",
+          "type": "string"
+        }
+      ],
+      "table": "Games",
+      "url": "game"
+    }
+  ]
+}
