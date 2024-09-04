@@ -1,0 +1,49 @@
+{
+  "entities": [
+    {
+      "compositeKeys": [
+        {
+          "keys": [
+            {
+              "key": "NormalizedName"
+            }
+          ]
+        }
+      ],
+      "defaults": {
+        "ascending": true,
+        "display": [
+          {
+            "ordering": 1,
+            "property": "Name"
+          }
+        ],
+        "filter": "Name",
+        "sort": "Name"
+      },
+      "names": {
+        "entity": "Game",
+        "human": "Game",
+        "plural": "Games",
+        "table": "Games",
+        "url": "game"
+      },
+      "properties": [
+        {
+          "names": {
+            "human": "Name",
+            "property": "Name"
+          },
+          "normalized": true,
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "names": {
+    "human": "Blazor CRUD .NET 8",
+    "namespace": "BlazorCrudDotNet8"
+  },
+  "version": "0.1.0"
+}
