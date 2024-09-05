@@ -15,12 +15,12 @@
         <h1>Edit Game</h1>
     }
     <article>
-        <EditForm class="container" Model="LowercaseNamePlaceholder" OnSubmit="HandleSubmit">
+        <EditForm class="container" Model="game" OnSubmit="HandleSubmit">
             @* <div class="row">
                 <div class="col">
                     <label>
                         PropertyNamePlaceholder:
-                        <InputText @bind-Value="LowercaseNamePlaceholder.PropertyNamePlaceholder">@LowercaseNamePlaceholder.PropertyNamePlaceholder</InputText>
+                        <InputText @bind-Value="game.PropertyNamePlaceholder">@game.PropertyNamePlaceholder</InputText>
                     </label>
                 </div>
             </div> *@
@@ -40,7 +40,7 @@
 @code {
     [Parameter]
     public Guid Id { get; set; }
-    Game LowercaseNamePlaceholder { get; set; } = new Game();
+    Game game { get; set; } = new Game();
 
     protected override async Task OnParametersSetAsync()
     {
@@ -53,11 +53,11 @@
 
         if (result == null)
         {
-            LowercaseNamePlaceholder = new Game();
+            game = new Game();
         }
         else
         {
-            LowercaseNamePlaceholder = result;
+            game = result;
         }
     }
 
@@ -76,14 +76,14 @@
             return;
         }
 
-        if (LowercaseNamePlaceholder == null)
+        if (game == null)
         {
             return;
         }
 
         if (Id.Equals(Guid.Empty))
         {
-            var dbGame = await GameAdminService.AddAsync(userName, LowercaseNamePlaceholder);
+            var dbGame = await GameAdminService.AddAsync(userName, game);
 
             if (dbGame == null)
             {
@@ -94,7 +94,7 @@
         }
         else
         {
-            await GameAdminService.EditAsync(userName, Id, LowercaseNamePlaceholder);
+            await GameAdminService.EditAsync(userName, Id, game);
         }
     }
 
