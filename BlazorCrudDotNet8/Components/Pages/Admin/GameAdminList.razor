@@ -14,21 +14,21 @@
                 </tr>
             </thead>
             <tbody>
-                @if (TableNamePlaceholder == null)
+                @if (Games == null)
                 {
                     <tr>
                         @* <td colspan="CountPlaceHolder">Loading...</td> *@
                     </tr>
                 }
-                else if (TableNamePlaceholder.Count == 0)
+                else if (Games.Count == 0)
                 {
                     <tr>
-                        @* <td colspan="CountPlaceHolder">No HumanLowerTableNamePlaceholder found.</td> *@
+                        @* <td colspan="CountPlaceHolder">No HumanLowerGames found.</td> *@
                     </tr>
                 }
                 else
                 {
-                    @foreach (var LowercaseNamePlaceholder in TableNamePlaceholder)
+                    @foreach (var LowercaseNamePlaceholder in Games)
                     {
                         <tr>
                             <td>@LowercaseNamePlaceholder.Id</td>
@@ -46,10 +46,10 @@
 </section>
 
 @code {
-    List<Game>? TableNamePlaceholder = null;
+    List<Game>? Games = null;
 
     protected override async Task OnInitializedAsync()
     {
-        TableNamePlaceholder = await GameAdminService.GetAllAsync();
+        Games = await GameAdminService.GetAllAsync();
     }
 }
