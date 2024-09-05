@@ -1,10 +1,10 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Data;
-using ApplicationNamePlaceholder.BusinessLogic.Entities;
-using ApplicationNamePlaceholder.BusinessLogic.Services;
-using ApplicationNamePlaceholder.BusinessLogic.Services.Server;
-using ApplicationNamePlaceholder.Client.Pages;
-using ApplicationNamePlaceholder.Components;
-using ApplicationNamePlaceholder.Components.Account;
+﻿using BlazorCrudDotNet8.BusinessLogic.Data;
+using BlazorCrudDotNet8.BusinessLogic.Entities;
+using BlazorCrudDotNet8.BusinessLogic.Services;
+using BlazorCrudDotNet8.BusinessLogic.Services.Server;
+using BlazorCrudDotNet8.Client.Pages;
+using BlazorCrudDotNet8.Components;
+using BlazorCrudDotNet8.Components.Account;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -77,7 +77,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(ApplicationNamePlaceholder.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(BlazorCrudDotNet8.Client._Imports).Assembly);
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();
