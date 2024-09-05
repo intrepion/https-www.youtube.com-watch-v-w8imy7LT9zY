@@ -8,7 +8,7 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
 {
     private readonly ApplicationDbContext _applicationDbContext = applicationDbContext;
 
-    public async Task<Game?> AddAsync(string userName, Game LowercaseNamePlaceholder)
+    public async Task<Game?> AddAsync(string userName, Game game)
     {
         if (string.IsNullOrWhiteSpace(userName))
         {
@@ -22,19 +22,19 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
             throw new Exception("Authentication required.");
         }
 
-        // if (string.IsNullOrWhiteSpace(LowercaseNamePlaceholder.PropertyNamePlaceholder))
+        // if (string.IsNullOrWhiteSpace(game.PropertyNamePlaceholder))
         // {
         //     throw new Exception("Name required.");
         // }
 
-        LowercaseNamePlaceholder.ApplicationUserUpdatedBy = user;
-        // LowercaseNamePlaceholder.NormalizedPropertyNamePlaceholder = LowercaseNamePlaceholder.PropertyNamePlaceholder?.ToUpper();
+        game.ApplicationUserUpdatedBy = user;
+        // game.NormalizedPropertyNamePlaceholder = game.PropertyNamePlaceholder?.ToUpper();
 
-        _applicationDbContext.Games.Add(LowercaseNamePlaceholder);
+        _applicationDbContext.Games.Add(game);
 
         await _applicationDbContext.SaveChangesAsync();
 
-        return LowercaseNamePlaceholder;
+        return game;
     }
 
     public async Task<bool> DeleteAsync(string userName, Guid id)
@@ -68,7 +68,7 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
         return true;
     }
 
-    public async Task<Game?> EditAsync(string userName, Guid id, Game LowercaseNamePlaceholder)
+    public async Task<Game?> EditAsync(string userName, Guid id, Game game)
     {
         if (string.IsNullOrWhiteSpace(userName))
         {
@@ -89,14 +89,14 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
             throw new Exception("Application role not found.");
         }
 
-        // if (string.IsNullOrWhiteSpace(LowercaseNamePlaceholder.PropertyNamePlaceholder))
+        // if (string.IsNullOrWhiteSpace(game.PropertyNamePlaceholder))
         // {
         //     throw new Exception("PropertyNamePlaceholder required.");
         // }
 
         dbGame.ApplicationUserUpdatedBy = user;
-        // dbGame.PropertyNamePlaceholder = LowercaseNamePlaceholder.PropertyNamePlaceholder;
-        // dbGame.NormalizedPropertyNamePlaceholder = LowercaseNamePlaceholder.PropertyNamePlaceholder?.ToUpper();
+        // dbGame.PropertyNamePlaceholder = game.PropertyNamePlaceholder;
+        // dbGame.NormalizedPropertyNamePlaceholder = game.PropertyNamePlaceholder?.ToUpper();
 
         await _applicationDbContext.SaveChangesAsync();
 
