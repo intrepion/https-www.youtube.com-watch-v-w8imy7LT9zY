@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
-using ApplicationNamePlaceholder.BusinessLogic.Entities;
+using BlazorCrudDotNet8.BusinessLogic.Entities;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Services.Client;
+namespace BlazorCrudDotNet8.BusinessLogic.Services.Client;
 
 public class GameClientAdminService(HttpClient httpClient) : IGameAdminService
 {
