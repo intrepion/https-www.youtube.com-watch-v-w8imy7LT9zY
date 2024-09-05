@@ -7,9 +7,9 @@ public class GameClientAdminService(HttpClient httpClient) : IGameAdminService
 {
     private readonly HttpClient _httpClient = httpClient;
 
-    public async Task<Game?> AddAsync(string userName, Game LowercaseNamePlaceholder)
+    public async Task<Game?> AddAsync(string userName, Game game)
     {
-        var result = await _httpClient.PostAsJsonAsync("/api/Game", LowercaseNamePlaceholder);
+        var result = await _httpClient.PostAsJsonAsync("/api/Game", game);
 
         return await result.Content.ReadFromJsonAsync<Game>();
     }
@@ -21,9 +21,9 @@ public class GameClientAdminService(HttpClient httpClient) : IGameAdminService
         return await result.Content.ReadFromJsonAsync<bool>();
     }
 
-    public async Task<Game?> EditAsync(string userName, Guid id, Game LowercaseNamePlaceholder)
+    public async Task<Game?> EditAsync(string userName, Guid id, Game game)
     {
-        var result = await _httpClient.PutAsJsonAsync($"/api/Game/{id}", LowercaseNamePlaceholder);
+        var result = await _httpClient.PutAsJsonAsync($"/api/Game/{id}", game);
 
         return await result.Content.ReadFromJsonAsync<Game>();
     }
