@@ -3,41 +3,41 @@ using ApplicationNamePlaceholder.BusinessLogic.Entities;
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Services.Client;
 
-public class EntityNamePlaceholderClientAdminService(HttpClient httpClient) : IEntityNamePlaceholderAdminService
+public class GameClientAdminService(HttpClient httpClient) : IGameAdminService
 {
     private readonly HttpClient _httpClient = httpClient;
 
-    public async Task<EntityNamePlaceholder?> AddAsync(string userName, EntityNamePlaceholder LowercaseNamePlaceholder)
+    public async Task<Game?> AddAsync(string userName, Game LowercaseNamePlaceholder)
     {
-        var result = await _httpClient.PostAsJsonAsync("/api/EntityNamePlaceholder", LowercaseNamePlaceholder);
+        var result = await _httpClient.PostAsJsonAsync("/api/Game", LowercaseNamePlaceholder);
 
-        return await result.Content.ReadFromJsonAsync<EntityNamePlaceholder>();
+        return await result.Content.ReadFromJsonAsync<Game>();
     }
 
     public async Task<bool> DeleteAsync(string userName, Guid id)
     {
-        var result = await _httpClient.DeleteAsync($"/api/EntityNamePlaceholder/{id}");
+        var result = await _httpClient.DeleteAsync($"/api/Game/{id}");
 
         return await result.Content.ReadFromJsonAsync<bool>();
     }
 
-    public async Task<EntityNamePlaceholder?> EditAsync(string userName, Guid id, EntityNamePlaceholder LowercaseNamePlaceholder)
+    public async Task<Game?> EditAsync(string userName, Guid id, Game LowercaseNamePlaceholder)
     {
-        var result = await _httpClient.PutAsJsonAsync($"/api/EntityNamePlaceholder/{id}", LowercaseNamePlaceholder);
+        var result = await _httpClient.PutAsJsonAsync($"/api/Game/{id}", LowercaseNamePlaceholder);
 
-        return await result.Content.ReadFromJsonAsync<EntityNamePlaceholder>();
+        return await result.Content.ReadFromJsonAsync<Game>();
     }
 
-    public async Task<List<EntityNamePlaceholder>?> GetAllAsync()
+    public async Task<List<Game>?> GetAllAsync()
     {
-        var result = await _httpClient.GetFromJsonAsync<List<EntityNamePlaceholder>>("/api/EntityNamePlaceholder");
+        var result = await _httpClient.GetFromJsonAsync<List<Game>>("/api/Game");
 
         return result;
     }
 
-    public async Task<EntityNamePlaceholder?> GetByIdAsync(Guid id)
+    public async Task<Game?> GetByIdAsync(Guid id)
     {
-        var result = await _httpClient.GetFromJsonAsync<EntityNamePlaceholder>($"/api/EntityNamePlaceholder/{id}");
+        var result = await _httpClient.GetFromJsonAsync<Game>($"/api/Game/{id}");
 
         return result;
     }
