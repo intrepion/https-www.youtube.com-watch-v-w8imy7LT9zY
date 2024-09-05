@@ -1,6 +1,6 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Entities;
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Services;
+namespace BlazorCrudDotNet8.BusinessLogic.Services;
 
 public interface IGameAdminService
 {
