@@ -65,9 +65,9 @@ public class GameAdminController(IGameAdminService EntityLowercaseNamePlaceholde
             return Ok(null);
         }
 
-        var TableLowercaseNamePlaceholder = await _EntityLowercaseNamePlaceholderAdminService.GetAllAsync();
+        var games = await _EntityLowercaseNamePlaceholderAdminService.GetAllAsync();
 
-        return Ok(TableLowercaseNamePlaceholder);
+        return Ok(games);
     }
 
     [HttpGet("{id}")]
