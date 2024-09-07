@@ -6,12 +6,12 @@ namespace ApplicationNamePlaceholder.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class GameAdminController(IGameAdminService EntityLowercaseNamePlaceholderAdminService) : ControllerBase
+public class GameAdminController(IGameAdminService gameAdminService) : ControllerBase
 {
-    private readonly IGameAdminService _EntityLowercaseNamePlaceholderAdminService = EntityLowercaseNamePlaceholderAdminService;
+    private readonly IGameAdminService _gameAdminService = gameAdminService;
 
     [HttpPost]
-    public async Task<ActionResult<Game?>> Add(Game EntityLowercaseNamePlaceholder)
+    public async Task<ActionResult<Game?>> Add(Game game)
     {
         var userName = User.Identity?.Name;
 
@@ -20,7 +20,7 @@ public class GameAdminController(IGameAdminService EntityLowercaseNamePlaceholde
             return Ok(null);
         }
 
-        var addedGame = await _EntityLowercaseNamePlaceholderAdminService.AddAsync(userName, EntityLowercaseNamePlaceholder);
+        var addedGame = await _gameAdminService.AddAsync(userName, game);
 
         return Ok(addedGame);
     }
@@ -35,13 +35,13 @@ public class GameAdminController(IGameAdminService EntityLowercaseNamePlaceholde
             return Ok(null);
         }
 
-        var result = await _EntityLowercaseNamePlaceholderAdminService.DeleteAsync(userName, id);
+        var result = await _gameAdminService.DeleteAsync(userName, id);
 
         return Ok(result);
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<Game?>> Edit(Guid id, Game EntityLowercaseNamePlaceholder)
+    public async Task<ActionResult<Game?>> Edit(Guid id, Game game)
     {
         var userName = User.Identity?.Name;
 
@@ -50,7 +50,7 @@ public class GameAdminController(IGameAdminService EntityLowercaseNamePlaceholde
             return Ok(null);
         }
 
-        var updatedGame = await _EntityLowercaseNamePlaceholderAdminService.EditAsync(userName, id, EntityLowercaseNamePlaceholder);
+        var updatedGame = await _gameAdminService.EditAsync(userName, id, game);
 
         return Ok(updatedGame);
     }
@@ -65,7 +65,7 @@ public class GameAdminController(IGameAdminService EntityLowercaseNamePlaceholde
             return Ok(null);
         }
 
-        var games = await _EntityLowercaseNamePlaceholderAdminService.GetAllAsync();
+        var games = await _gameAdminService.GetAllAsync();
 
         return Ok(games);
     }
@@ -80,8 +80,8 @@ public class GameAdminController(IGameAdminService EntityLowercaseNamePlaceholde
             return Ok(null);
         }
 
-        var EntityLowercaseNamePlaceholder = await _EntityLowercaseNamePlaceholderAdminService.GetByIdAsync(id);
+        var game = await _gameAdminService.GetByIdAsync(id);
 
-        return Ok(EntityLowercaseNamePlaceholder);
+        return Ok(game);
     }
 }
