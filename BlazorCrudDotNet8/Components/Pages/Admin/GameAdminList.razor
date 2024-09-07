@@ -28,13 +28,13 @@
                 }
                 else
                 {
-                    @foreach (var EntityLowercaseNamePlaceholder in games)
+                    @foreach (var game in games)
                     {
                         <tr>
-                            <td>@EntityLowercaseNamePlaceholder.Id</td>
+                            <td>@game.Id</td>
                             @* ListItemCodePlaceholder *@
                             <td>
-                                <NavButton Href="@("/admin/game-edit/" + EntityLowercaseNamePlaceholder.Id)" Name="Edit" />
+                                <NavButton Href="@("/admin/game-edit/" + game.Id)" Name="Edit" />
                             </td>
                         </tr>
                     }
