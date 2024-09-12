@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ApplicationNamePlaceholder.BusinessLogic.Data;
-using ApplicationNamePlaceholder.BusinessLogic.Entities;
-using ApplicationNamePlaceholder.BusinessLogic.Entities.DataTransferObjects;
+using BlazorCrudDotNet8.BusinessLogic.Data;
+using BlazorCrudDotNet8.BusinessLogic.Entities;
+using BlazorCrudDotNet8.BusinessLogic.Entities.DataTransferObjects;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Services.Server;
+namespace BlazorCrudDotNet8.BusinessLogic.Services.Server;
 
 public class ApplicationUserAdminService(ApplicationDbContext applicationDbContext) : IApplicationUserAdminService
 {
