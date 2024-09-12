@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ApplicationNamePlaceholder.BusinessLogic.Entities;
-using ApplicationNamePlaceholder.BusinessLogic.Entities.DataTransferObjects;
-using ApplicationNamePlaceholder.BusinessLogic.Services;
+using BlazorCrudDotNet8.BusinessLogic.Entities;
+using BlazorCrudDotNet8.BusinessLogic.Entities.DataTransferObjects;
+using BlazorCrudDotNet8.BusinessLogic.Services;
 
-namespace ApplicationNamePlaceholder.Controllers;
+namespace BlazorCrudDotNet8.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
