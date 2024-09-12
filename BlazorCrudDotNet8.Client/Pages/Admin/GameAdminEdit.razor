@@ -2,7 +2,7 @@
 @page "/admin/UrlNamePlaceholder-edit/{id:guid}"
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject NavigationManager NavigationManager
-@inject IEntityNamePlaceholderAdminService EntityNamePlaceholderAdminService
+@inject IGameAdminService GameAdminService
 @* InjectionCodePlaceholder *@
 @rendermode InteractiveAuto
 
@@ -37,7 +37,7 @@
 @code {
     [Parameter]
     public Guid Id { get; set; }
-    EntityNamePlaceholder EntityLowercaseNamePlaceholder { get; set; } = new EntityNamePlaceholder();
+    Game EntityLowercaseNamePlaceholder { get; set; } = new Game();
     @* ListDeclarationCodePlaceholder *@
 
     protected override async Task OnInitializedAsync()
@@ -54,11 +54,11 @@
             return;
         }
 
-        var result = await EntityNamePlaceholderAdminService.GetByIdAsync(Id);
+        var result = await GameAdminService.GetByIdAsync(Id);
 
         if (result == null)
         {
-            EntityLowercaseNamePlaceholder = new EntityNamePlaceholder();
+            EntityLowercaseNamePlaceholder = new Game();
         }
         else
         {
@@ -88,18 +88,18 @@
 
         if (Id.Equals(Guid.Empty))
         {
-            var dbEntityNamePlaceholder = await EntityNamePlaceholderAdminService.AddAsync(userName, EntityLowercaseNamePlaceholder);
+            var dbGame = await GameAdminService.AddAsync(userName, EntityLowercaseNamePlaceholder);
 
-            if (dbEntityNamePlaceholder == null)
+            if (dbGame == null)
             {
                 return;
             }
 
-            NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{dbEntityNamePlaceholder.Id}");
+            NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{dbGame.Id}");
         }
         else
         {
-            await EntityNamePlaceholderAdminService.EditAsync(userName, Id, EntityLowercaseNamePlaceholder);
+            await GameAdminService.EditAsync(userName, Id, EntityLowercaseNamePlaceholder);
         }
     }
 
@@ -118,7 +118,7 @@
             return;
         }
 
-        await EntityNamePlaceholderAdminService.DeleteAsync(userName, Id);
+        await GameAdminService.DeleteAsync(userName, Id);
         NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-list");
     }
 
