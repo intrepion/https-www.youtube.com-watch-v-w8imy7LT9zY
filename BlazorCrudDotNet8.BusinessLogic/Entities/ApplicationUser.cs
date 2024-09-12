@@ -13,6 +13,6 @@ public class ApplicationUser : IdentityUser<Guid>
     public ICollection<ApplicationUserLogin> UpdatedApplicationUserLogins { get; set; } = [];
     public ICollection<ApplicationUserRole> UpdatedApplicationUserRoles { get; set; } = [];
     public ICollection<ApplicationUserToken> UpdatedApplicationUserTokens { get; set; } = [];
-    public ICollection<Game> UpdatedTableNamePlaceholder { get; set; } = [];
+    public ICollection<Game> UpdatedGames { get; set; } = [];
     // AppUserUpdatedCodePlaceholder
 }
