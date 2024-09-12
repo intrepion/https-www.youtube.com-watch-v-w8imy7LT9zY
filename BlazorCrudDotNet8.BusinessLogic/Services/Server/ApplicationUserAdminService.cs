@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using BlazorCrudDotNet8.BusinessLogic.Data;
+﻿using BlazorCrudDotNet8.BusinessLogic.Data;
 using BlazorCrudDotNet8.BusinessLogic.Entities;
 using BlazorCrudDotNet8.BusinessLogic.Entities.DataTransferObjects;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlazorCrudDotNet8.BusinessLogic.Services.Server;
 
