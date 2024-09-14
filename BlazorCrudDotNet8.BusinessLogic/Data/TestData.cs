@@ -1,5 +1,5 @@
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities;
 using Bogus;
-using BlazorCrudDotNet8.BusinessLogic.Entities;
 
 namespace BlazorCrudDotNet8.BusinessLogic.Data;
 
