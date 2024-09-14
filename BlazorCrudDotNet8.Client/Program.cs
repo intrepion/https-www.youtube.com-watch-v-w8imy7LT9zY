@@ -14,7 +14,6 @@ builder.Services.AddScoped(http => new HttpClient
 {
     BaseAddress = new Uri(builder.HostEnvironment.BaseAddress),
 });
-
 builder.Services.AddScoped<IApplicationRoleAdminService, ApplicationRoleClientAdminService>();
 builder.Services.AddScoped<IApplicationUserAdminService, ApplicationUserClientAdminService>();
 

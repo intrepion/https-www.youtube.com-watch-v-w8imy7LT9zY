@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using BlazorCrudDotNet8.BusinessLogic.Entities;
+using BlazorCrudDotNet8.BusinessLogic.Entities.DataTransferObjects;
 
 namespace BlazorCrudDotNet8.BusinessLogic.Services.Client;
 
@@ -41,4 +42,15 @@ public class GameClientAdminService(HttpClient httpClient) : IGameAdminService
 
         return result;
     }
+
+    public Task<int> GetCountAsync(CancellationToken cancellationToken = default)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<GameAdminDataTransferObject>> GetDataFragmentAsync(int startIndex, int? count, CancellationToken cancellationToken = default)
+    {
+        throw new NotImplementedException();
+    }
+
 }
