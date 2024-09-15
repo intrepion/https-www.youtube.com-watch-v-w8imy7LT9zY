@@ -16,7 +16,7 @@
         <h1>Edit Game</h1>
     }
     <article>
-        <EditForm class="container" Model="EntityLowercaseNamePlaceholder" OnSubmit="HandleSubmit">
+        <EditForm class="container" Model="game" OnSubmit="HandleSubmit">
             @* EditRowCodePlaceholder *@
             <div class="row">
                 <div class="col">
@@ -37,7 +37,7 @@
 @code {
     [Parameter]
     public Guid Id { get; set; }
-    Game EntityLowercaseNamePlaceholder { get; set; } = new Game();
+    Game game { get; set; } = new Game();
     @* ListDeclarationCodePlaceholder *@
 
     protected override async Task OnInitializedAsync()
@@ -58,11 +58,11 @@
 
         if (result == null)
         {
-            EntityLowercaseNamePlaceholder = new Game();
+            game = new Game();
         }
         else
         {
-            EntityLowercaseNamePlaceholder = result;
+            game = result;
         }
     }
 
@@ -81,14 +81,14 @@
             return;
         }
 
-        if (EntityLowercaseNamePlaceholder == null)
+        if (game == null)
         {
             return;
         }
 
         if (Id.Equals(Guid.Empty))
         {
-            var dbGame = await GameAdminService.AddAsync(userName, EntityLowercaseNamePlaceholder);
+            var dbGame = await GameAdminService.AddAsync(userName, game);
 
             if (dbGame == null)
             {
@@ -99,7 +99,7 @@
         }
         else
         {
-            await GameAdminService.EditAsync(userName, Id, EntityLowercaseNamePlaceholder);
+            await GameAdminService.EditAsync(userName, Id, game);
         }
     }
 
