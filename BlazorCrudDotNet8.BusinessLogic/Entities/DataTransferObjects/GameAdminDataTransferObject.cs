@@ -6,27 +6,27 @@ public class EntityNamePlaceholderAdminDataTransferObject
 
     // DtoPropertyPlaceholder
 
-    public static EntityNamePlaceholderAdminDataTransferObject FromEntityNamePlaceholder(EntityNamePlaceholder? EntityLowercaseNamePlaceholder)
+    public static EntityNamePlaceholderAdminDataTransferObject FromEntityNamePlaceholder(EntityNamePlaceholder? game)
     {
-        if (EntityLowercaseNamePlaceholder == null)
+        if (game == null)
         {
             return new EntityNamePlaceholderAdminDataTransferObject();
         }
 
         return new EntityNamePlaceholderAdminDataTransferObject
         {
-            Id = EntityLowercaseNamePlaceholder.Id,
+            Id = game.Id,
 
             // EntityToDtoPropertyPlaceholder
         };
     }
 
-    public static EntityNamePlaceholder ToEntityNamePlaceholder(ApplicationUser applicationUser, EntityNamePlaceholderAdminDataTransferObject EntityLowercaseNamePlaceholderAdminDataTransferObject)
+    public static EntityNamePlaceholder ToEntityNamePlaceholder(ApplicationUser applicationUser, EntityNamePlaceholderAdminDataTransferObject gameAdminDataTransferObject)
     {
         return new EntityNamePlaceholder
         {
             ApplicationUserUpdatedBy = applicationUser,
-            Id = EntityLowercaseNamePlaceholderAdminDataTransferObject.Id,
+            Id = gameAdminDataTransferObject.Id,
 
             // DtoToEntityPropertyPlaceholder
         };
