@@ -3,7 +3,7 @@
 @rendermode InteractiveAuto
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject NavigationManager NavigationManager
-@inject IEntityNamePlaceholderAdminService EntityNamePlaceholderAdminService
+@inject IGameAdminService GameAdminService
 
 @* InjectionCodePlaceholder *@
 
@@ -40,7 +40,7 @@
 @code {
     [Parameter]
     public Guid Id { get; set; }
-    EntityNamePlaceholderAdminEditModel gameAdminEditModel { get; set; } = new EntityNamePlaceholderAdminEditModel();
+    GameAdminEditModel gameAdminEditModel { get; set; } = new GameAdminEditModel();
 
     @* ListDeclarationCodePlaceholder *@
 
@@ -58,15 +58,15 @@
             return;
         }
 
-        var databaseEntityNamePlaceholderAdminDataTransferObject = await EntityNamePlaceholderAdminService.GetByIdAsync(Id);
+        var databaseGameAdminDataTransferObject = await GameAdminService.GetByIdAsync(Id);
 
-        if (databaseEntityNamePlaceholderAdminDataTransferObject == null)
+        if (databaseGameAdminDataTransferObject == null)
         {
-            gameAdminEditModel = new EntityNamePlaceholderAdminEditModel();
+            gameAdminEditModel = new GameAdminEditModel();
         }
         else
         {
-            gameAdminEditModel = EntityNamePlaceholderAdminEditModel.FromEntityNamePlaceholderAdminDataTransferObject(databaseEntityNamePlaceholderAdminDataTransferObject);
+            gameAdminEditModel = GameAdminEditModel.FromGameAdminDataTransferObject(databaseGameAdminDataTransferObject);
         }
     }
 
@@ -85,22 +85,22 @@
             return;
         } *@
 
-        var gameAdminDataTransferObject = EntityNamePlaceholderAdminEditModel.ToEntityNamePlaceholderAdminDataTransferObject(gameAdminEditModel);
+        var gameAdminDataTransferObject = GameAdminEditModel.ToGameAdminDataTransferObject(gameAdminEditModel);
 
         if (Id.Equals(Guid.Empty))
         {
-            var newEntityNamePlaceholderAdminDataTransferObject = await EntityNamePlaceholderAdminService.AddAsync(userName, gameAdminDataTransferObject);
+            var newGameAdminDataTransferObject = await GameAdminService.AddAsync(userName, gameAdminDataTransferObject);
 
-            if (newEntityNamePlaceholderAdminDataTransferObject == null)
+            if (newGameAdminDataTransferObject == null)
             {
                 return;
             }
 
-            NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{newEntityNamePlaceholderAdminDataTransferObject.Id}");
+            NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{newGameAdminDataTransferObject.Id}");
         }
         else
         {
-            await EntityNamePlaceholderAdminService.EditAsync(userName, Id, gameAdminDataTransferObject);
+            await GameAdminService.EditAsync(userName, Id, gameAdminDataTransferObject);
         }
     }
 
@@ -119,7 +119,7 @@
             return;
         }
 
-        await EntityNamePlaceholderAdminService.DeleteAsync(userName, Id);
+        await GameAdminService.DeleteAsync(userName, Id);
         NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-list");
     }
 
