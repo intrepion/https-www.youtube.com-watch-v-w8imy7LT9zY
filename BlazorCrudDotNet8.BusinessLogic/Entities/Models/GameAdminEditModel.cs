@@ -8,31 +8,31 @@ public class EntityNamePlaceholderAdminEditModel
 
     // ModelPropertyPlaceholder
 
-    public static EntityNamePlaceholderAdminEditModel FromEntityNamePlaceholderAdminDataTransferObject(EntityNamePlaceholderAdminDataTransferObject? EntityLowercaseNamePlaceholderAdminDataTransferObject)
+    public static EntityNamePlaceholderAdminEditModel FromEntityNamePlaceholderAdminDataTransferObject(EntityNamePlaceholderAdminDataTransferObject? gameAdminDataTransferObject)
     {
-        if (EntityLowercaseNamePlaceholderAdminDataTransferObject == null)
+        if (gameAdminDataTransferObject == null)
         {
             return new EntityNamePlaceholderAdminEditModel();
         }
 
         return new EntityNamePlaceholderAdminEditModel
         {
-            Id = EntityLowercaseNamePlaceholderAdminDataTransferObject.Id,
+            Id = gameAdminDataTransferObject.Id,
 
             // DtoToModelPropertyPlaceholder
         };
     }
 
-    public static EntityNamePlaceholderAdminDataTransferObject ToEntityNamePlaceholderAdminDataTransferObject(EntityNamePlaceholderAdminEditModel? EntityLowercaseNamePlaceholderAdminEditModel)
+    public static EntityNamePlaceholderAdminDataTransferObject ToEntityNamePlaceholderAdminDataTransferObject(EntityNamePlaceholderAdminEditModel? gameAdminEditModel)
     {
-        if (EntityLowercaseNamePlaceholderAdminEditModel == null)
+        if (gameAdminEditModel == null)
         {
             return new EntityNamePlaceholderAdminDataTransferObject();
         }
 
         return new EntityNamePlaceholderAdminDataTransferObject
         {
-            Id = EntityLowercaseNamePlaceholderAdminEditModel.Id,
+            Id = gameAdminEditModel.Id,
 
             // ModelToDtoPropertyPlaceholder
         };
