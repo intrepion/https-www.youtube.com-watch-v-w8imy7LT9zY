@@ -2,11 +2,11 @@
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Services;
 
-public interface IEntityNamePlaceholderAdminService
+public interface IGameAdminService
 {
-    Task<EntityNamePlaceholderAdminDataTransferObject?> AddAsync(string userName, EntityNamePlaceholderAdminDataTransferObject game);
+    Task<GameAdminDataTransferObject?> AddAsync(string userName, GameAdminDataTransferObject game);
     Task<bool> DeleteAsync(string userName, Guid id);
-    Task<EntityNamePlaceholderAdminDataTransferObject?> EditAsync(string userName, Guid id, EntityNamePlaceholderAdminDataTransferObject game);
-    Task<List<EntityNamePlaceholderAdminDataTransferObject>?> GetAllAsync();
-    Task<EntityNamePlaceholderAdminDataTransferObject?> GetByIdAsync(Guid id);
+    Task<GameAdminDataTransferObject?> EditAsync(string userName, Guid id, GameAdminDataTransferObject game);
+    Task<List<GameAdminDataTransferObject>?> GetAllAsync();
+    Task<GameAdminDataTransferObject?> GetByIdAsync(Guid id);
 }
