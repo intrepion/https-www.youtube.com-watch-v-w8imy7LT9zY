@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
-using ApplicationNamePlaceholder.BusinessLogic.Entities.DataTransferObjects;
+using BlazorCrudDotNet8.BusinessLogic.Entities.DataTransferObjects;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Services.Client;
+namespace BlazorCrudDotNet8.BusinessLogic.Services.Client;
 
 public class ApplicationUserClientAdminService(HttpClient httpClient) : IApplicationUserAdminService
 {
