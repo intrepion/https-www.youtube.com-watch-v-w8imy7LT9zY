@@ -1,19 +1,19 @@
 ﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities.DataTransferObjects;
 
-public class EntityNamePlaceholderAdminDataTransferObject
+public class GameAdminDataTransferObject
 {
     public Guid Id { get; set; }
 
     // DtoPropertyPlaceholder
 
-    public static EntityNamePlaceholderAdminDataTransferObject FromEntityNamePlaceholder(EntityNamePlaceholder? game)
+    public static GameAdminDataTransferObject FromGame(Game? game)
     {
         if (game == null)
         {
-            return new EntityNamePlaceholderAdminDataTransferObject();
+            return new GameAdminDataTransferObject();
         }
 
-        return new EntityNamePlaceholderAdminDataTransferObject
+        return new GameAdminDataTransferObject
         {
             Id = game.Id,
 
@@ -21,9 +21,9 @@ public class EntityNamePlaceholderAdminDataTransferObject
         };
     }
 
-    public static EntityNamePlaceholder ToEntityNamePlaceholder(ApplicationUser applicationUser, EntityNamePlaceholderAdminDataTransferObject gameAdminDataTransferObject)
+    public static Game ToGame(ApplicationUser applicationUser, GameAdminDataTransferObject gameAdminDataTransferObject)
     {
-        return new EntityNamePlaceholder
+        return new Game
         {
             ApplicationUserUpdatedBy = applicationUser,
             Id = gameAdminDataTransferObject.Id,
