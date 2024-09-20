@@ -6,6 +6,7 @@ public class GameAdminEditModel
 {
     public Guid Id { get; set; }
 
+    public string Name { get; set; } = string.Empty;
     // ModelPropertyPlaceholder
 
     public static GameAdminEditModel FromGameAdminDataTransferObject(GameAdminDataTransferObject? gameAdminDataTransferObject)
