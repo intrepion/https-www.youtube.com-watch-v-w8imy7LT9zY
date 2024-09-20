@@ -29,6 +29,7 @@ public class GameAdminDataTransferObject
             ApplicationUserUpdatedBy = applicationUser,
             Id = gameAdminDataTransferObject.Id,
 
+            Name = gameAdminDataTransferObject.Name,
             // DtoToEntityPropertyPlaceholder
         };
     }
