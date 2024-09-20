@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Services.Server;
 
-public class EntityNamePlaceholderAdminService(ApplicationDbContext applicationDbContext) : IEntityNamePlaceholderAdminService
+public class GameAdminService(ApplicationDbContext applicationDbContext) : IGameAdminService
 {
     private readonly ApplicationDbContext _applicationDbContext = applicationDbContext;
 
-    public async Task<EntityNamePlaceholderAdminDataTransferObject?> AddAsync(string userName, EntityNamePlaceholderAdminDataTransferObject gameAdminDataTransferObject)
+    public async Task<GameAdminDataTransferObject?> AddAsync(string userName, GameAdminDataTransferObject gameAdminDataTransferObject)
     {
         if (string.IsNullOrWhiteSpace(userName))
         {
@@ -25,13 +25,13 @@ public class EntityNamePlaceholderAdminService(ApplicationDbContext applicationD
 
         // RequiredPropertyCodePlaceholder
 
-        var game = EntityNamePlaceholderAdminDataTransferObject.ToEntityNamePlaceholder(user, gameAdminDataTransferObject);
+        var game = GameAdminDataTransferObject.ToGame(user, gameAdminDataTransferObject);
 
-        var result = await _applicationDbContext.EntityNamePlaceholders.AddAsync(game);
-        var databaseEntityNamePlaceholderAdminDataTransferObject = EntityNamePlaceholderAdminDataTransferObject.FromEntityNamePlaceholder(result.Entity);
+        var result = await _applicationDbContext.Games.AddAsync(game);
+        var databaseGameAdminDataTransferObject = GameAdminDataTransferObject.FromGame(result.Entity);
         await _applicationDbContext.SaveChangesAsync();
 
-        return databaseEntityNamePlaceholderAdminDataTransferObject;
+        return databaseGameAdminDataTransferObject;
     }
 
     public async Task<bool> DeleteAsync(string userName, Guid id)
@@ -48,24 +48,24 @@ public class EntityNamePlaceholderAdminService(ApplicationDbContext applicationD
             throw new Exception("Authentication required.");
         }
 
-        var databaseEntityNamePlaceholder = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var databaseGame = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
 
-        if (databaseEntityNamePlaceholder == null)
+        if (databaseGame == null)
         {
             return false;
         }
 
-        databaseEntityNamePlaceholder.ApplicationUserUpdatedBy = user;
+        databaseGame.ApplicationUserUpdatedBy = user;
         await _applicationDbContext.SaveChangesAsync();
 
-        _applicationDbContext.Remove(databaseEntityNamePlaceholder);
+        _applicationDbContext.Remove(databaseGame);
 
         await _applicationDbContext.SaveChangesAsync();
 
         return true;
     }
 
-    public async Task<EntityNamePlaceholderAdminDataTransferObject?> EditAsync(string userName, Guid id, EntityNamePlaceholderAdminDataTransferObject gameAdminDataTransferObject)
+    public async Task<GameAdminDataTransferObject?> EditAsync(string userName, Guid id, GameAdminDataTransferObject gameAdminDataTransferObject)
     {
         if (string.IsNullOrWhiteSpace(userName))
         {
@@ -79,16 +79,16 @@ public class EntityNamePlaceholderAdminService(ApplicationDbContext applicationD
             throw new Exception("Authentication required.");
         }
 
-        var databaseEntityNamePlaceholder = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var databaseGame = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
 
-        if (databaseEntityNamePlaceholder == null)
+        if (databaseGame == null)
         {
             throw new Exception("HumanNamePlaceholder not found.");
         }
 
         // EditRequiredPropertyCodePlaceholder
 
-        databaseEntityNamePlaceholder.ApplicationUserUpdatedBy = user;
+        databaseGame.ApplicationUserUpdatedBy = user;
 
         // EditDatabasePropertyCodePlaceholder
 
@@ -97,7 +97,7 @@ public class EntityNamePlaceholderAdminService(ApplicationDbContext applicationD
         return gameAdminDataTransferObject;
     }
 
-    public async Task<List<EntityNamePlaceholderAdminDataTransferObject>?> GetAllAsync()
+    public async Task<List<GameAdminDataTransferObject>?> GetAllAsync()
     {
         var result = await _applicationDbContext.TableNamePlaceholder.ToListAsync();
 
@@ -106,10 +106,10 @@ public class EntityNamePlaceholderAdminService(ApplicationDbContext applicationD
             return null;
         }
 
-        return result.Select(x => EntityNamePlaceholderAdminDataTransferObject.FromEntityNamePlaceholder(x)).ToList();
+        return result.Select(x => GameAdminDataTransferObject.FromGame(x)).ToList();
     }
 
-    public async Task<EntityNamePlaceholderAdminDataTransferObject?> GetByIdAsync(Guid id)
+    public async Task<GameAdminDataTransferObject?> GetByIdAsync(Guid id)
     {
         var result = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
 
@@ -118,6 +118,6 @@ public class EntityNamePlaceholderAdminService(ApplicationDbContext applicationD
             return null;
         }
 
-        return EntityNamePlaceholderAdminDataTransferObject.FromEntityNamePlaceholder(result);
+        return GameAdminDataTransferObject.FromGame(result);
     }
 }
