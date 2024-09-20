@@ -91,6 +91,7 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
         databaseGame.ApplicationUserUpdatedBy = user;
 
         databaseGame.Name = gameAdminDataTransferObject.Name;
+        databaseGame.NormalizedName = gameAdminDataTransferObject.Name.ToUpperInvariant();
         // EditDatabasePropertyCodePlaceholder
 
         await _applicationDbContext.SaveChangesAsync();
