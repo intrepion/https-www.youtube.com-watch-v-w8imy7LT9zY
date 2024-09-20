@@ -23,6 +23,11 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
             throw new Exception("Authentication required.");
         }
 
+        if (string.IsNullOrWhiteSpace(gameAdminDataTransferObject.Name))
+        {
+            throw new Exception("Name required.");
+        }
+
         // RequiredPropertyCodePlaceholder
 
         var game = GameAdminDataTransferObject.ToGame(user, gameAdminDataTransferObject);
