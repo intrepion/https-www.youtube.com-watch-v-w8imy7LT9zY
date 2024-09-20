@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities.DataTransferObjects;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Entities.DataTransferObjects;
 
 public class ApplicationRoleAdminDataTransferObject
 {
