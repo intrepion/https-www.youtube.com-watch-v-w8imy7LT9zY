@@ -19,6 +19,7 @@ public class GameAdminEditModel
         {
             Id = gameAdminDataTransferObject.Id,
 
+            Name = gameAdminDataTransferObject.Name,
             // DtoToModelPropertyPlaceholder
         };
     }
