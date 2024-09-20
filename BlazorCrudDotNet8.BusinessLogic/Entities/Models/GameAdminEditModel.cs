@@ -35,6 +35,7 @@ public class GameAdminEditModel
         {
             Id = gameAdminEditModel.Id,
 
+            Name = gameAdminEditModel.Name,
             // ModelToDtoPropertyPlaceholder
         };
     }
