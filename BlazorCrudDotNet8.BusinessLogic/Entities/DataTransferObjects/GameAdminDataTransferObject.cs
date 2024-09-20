@@ -17,6 +17,7 @@ public class GameAdminDataTransferObject
         {
             Id = game.Id,
 
+            Name = game.Name,
             // EntityToDtoPropertyPlaceholder
         };
     }
