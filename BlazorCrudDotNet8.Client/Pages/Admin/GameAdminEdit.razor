@@ -17,7 +17,7 @@
         <h1>Edit HumanNamePlaceholder</h1>
     }
     <article>
-        <EditForm class="container" Model="EntityLowercaseNamePlaceholderAdminEditModel" OnSubmit="HandleSubmit">
+        <EditForm class="container" Model="gameAdminEditModel" OnSubmit="HandleSubmit">
 
             @* EditRowCodePlaceholder *@
 
@@ -40,7 +40,7 @@
 @code {
     [Parameter]
     public Guid Id { get; set; }
-    EntityNamePlaceholderAdminEditModel EntityLowercaseNamePlaceholderAdminEditModel { get; set; } = new EntityNamePlaceholderAdminEditModel();
+    EntityNamePlaceholderAdminEditModel gameAdminEditModel { get; set; } = new EntityNamePlaceholderAdminEditModel();
 
     @* ListDeclarationCodePlaceholder *@
 
@@ -62,11 +62,11 @@
 
         if (databaseEntityNamePlaceholderAdminDataTransferObject == null)
         {
-            EntityLowercaseNamePlaceholderAdminEditModel = new EntityNamePlaceholderAdminEditModel();
+            gameAdminEditModel = new EntityNamePlaceholderAdminEditModel();
         }
         else
         {
-            EntityLowercaseNamePlaceholderAdminEditModel = EntityNamePlaceholderAdminEditModel.FromEntityNamePlaceholderAdminDataTransferObject(databaseEntityNamePlaceholderAdminDataTransferObject);
+            gameAdminEditModel = EntityNamePlaceholderAdminEditModel.FromEntityNamePlaceholderAdminDataTransferObject(databaseEntityNamePlaceholderAdminDataTransferObject);
         }
     }
 
@@ -80,16 +80,16 @@
             return;
         }
 
-        @* if (string.IsNullOrWhiteSpace(EntityLowercaseNamePlaceholderAdminEditModel.Name))
+        @* if (string.IsNullOrWhiteSpace(gameAdminEditModel.Name))
         {
             return;
         } *@
 
-        var EntityLowercaseNamePlaceholderAdminDataTransferObject = EntityNamePlaceholderAdminEditModel.ToEntityNamePlaceholderAdminDataTransferObject(EntityLowercaseNamePlaceholderAdminEditModel);
+        var gameAdminDataTransferObject = EntityNamePlaceholderAdminEditModel.ToEntityNamePlaceholderAdminDataTransferObject(gameAdminEditModel);
 
         if (Id.Equals(Guid.Empty))
         {
-            var newEntityNamePlaceholderAdminDataTransferObject = await EntityNamePlaceholderAdminService.AddAsync(userName, EntityLowercaseNamePlaceholderAdminDataTransferObject);
+            var newEntityNamePlaceholderAdminDataTransferObject = await EntityNamePlaceholderAdminService.AddAsync(userName, gameAdminDataTransferObject);
 
             if (newEntityNamePlaceholderAdminDataTransferObject == null)
             {
@@ -100,7 +100,7 @@
         }
         else
         {
-            await EntityNamePlaceholderAdminService.EditAsync(userName, Id, EntityLowercaseNamePlaceholderAdminDataTransferObject);
+            await EntityNamePlaceholderAdminService.EditAsync(userName, Id, gameAdminDataTransferObject);
         }
     }
 
