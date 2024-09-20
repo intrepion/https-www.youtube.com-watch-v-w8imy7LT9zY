@@ -48,7 +48,7 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
             throw new Exception("Authentication required.");
         }
 
-        var databaseGame = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var databaseGame = await _applicationDbContext.Games.FindAsync(id);
 
         if (databaseGame == null)
         {
@@ -79,7 +79,7 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
             throw new Exception("Authentication required.");
         }
 
-        var databaseGame = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var databaseGame = await _applicationDbContext.Games.FindAsync(id);
 
         if (databaseGame == null)
         {
@@ -99,7 +99,7 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
 
     public async Task<List<GameAdminDataTransferObject>?> GetAllAsync()
     {
-        var result = await _applicationDbContext.TableNamePlaceholder.ToListAsync();
+        var result = await _applicationDbContext.Games.ToListAsync();
 
         if (result == null)
         {
@@ -111,7 +111,7 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
 
     public async Task<GameAdminDataTransferObject?> GetByIdAsync(Guid id)
     {
-        var result = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var result = await _applicationDbContext.Games.FindAsync(id);
 
         if (result == null)
         {
