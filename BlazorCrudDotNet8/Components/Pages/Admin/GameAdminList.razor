@@ -1,4 +1,4 @@
-@page "/admin/UrlNamePlaceholder-list"
+@page "/admin/game-list"
 @rendermode InteractiveServer
 @inject IGameAdminService GameAdminService
 @attribute [StreamRendering]
@@ -35,14 +35,14 @@
                             <td>@game.Id</td>
                             @* ListItemCodePlaceholder *@
                             <td>
-                                <NavLink Href="@("/admin/UrlNamePlaceholder-edit/" + game.Id)">Edit</NavLink>
+                                <NavLink Href="@("/admin/game-edit/" + game.Id)">Edit</NavLink>
                             </td>
                         </tr>
                     }
                 }
             </tbody>
         </table>
-        <NavLink Href="/admin/UrlNamePlaceholder-edit">Create</NavLink>
+        <NavLink Href="/admin/game-edit">Create</NavLink>
     </article>
 </section>
 
