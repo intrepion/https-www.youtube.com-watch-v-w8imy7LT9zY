@@ -1,6 +1,6 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos;
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities.Dtos;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Models;
+namespace BlazorCrudDotNet8.BusinessLogic.Entities.Models;
 
 public class GameAdminEditModel
 {
