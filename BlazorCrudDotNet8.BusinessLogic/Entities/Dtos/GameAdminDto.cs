@@ -20,6 +20,7 @@ public class GameAdminDto
         {
             Id = game.Id,
 
+            Name = game.Name,
             // EntityToDtoPropertyPlaceholder
             // Title = game.Title,
             // ToDoList = game.ToDoList,
