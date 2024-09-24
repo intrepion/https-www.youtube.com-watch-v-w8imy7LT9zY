@@ -3,7 +3,7 @@
 @rendermode InteractiveAuto
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject NavigationManager NavigationManager
-@inject IEntityNamePlaceholderAdminService EntityNamePlaceholderAdminService
+@inject IGameAdminService GameAdminService
 
 @* InjectionCodePlaceholder *@
 @* @inject IToDoListAdminService ToDoListAdminService *@
@@ -73,7 +73,7 @@
 @code {
     [Parameter]
     public Guid Id { get; set; }
-    EntityNamePlaceholderAdminEditModel gameAdminEditModel { get; set; } = new EntityNamePlaceholderAdminEditModel();
+    GameAdminEditModel gameAdminEditModel { get; set; } = new GameAdminEditModel();
 
     @* ListDeclarationCodePlaceholder *@
     @* List<ToDoList>? toDoListList { get; set; } *@
@@ -113,15 +113,15 @@
             return;
         }
 
-        var databaseEntityNamePlaceholderAdminDto = await EntityNamePlaceholderAdminService.GetByIdAsync(userName, Id);
+        var databaseGameAdminDto = await GameAdminService.GetByIdAsync(userName, Id);
 
-        if (databaseEntityNamePlaceholderAdminDto == null)
+        if (databaseGameAdminDto == null)
         {
-            gameAdminEditModel = new EntityNamePlaceholderAdminEditModel();
+            gameAdminEditModel = new GameAdminEditModel();
         }
         else
         {
-            gameAdminEditModel = EntityNamePlaceholderAdminEditModel.FromEntityNamePlaceholderAdminDto(databaseEntityNamePlaceholderAdminDto);
+            gameAdminEditModel = GameAdminEditModel.FromGameAdminDto(databaseGameAdminDto);
         }
     }
 
@@ -140,23 +140,23 @@
             return;
         } *@
 
-        var gameAdminDto = EntityNamePlaceholderAdminEditModel.ToEntityNamePlaceholderAdminDto(gameAdminEditModel);
+        var gameAdminDto = GameAdminEditModel.ToGameAdminDto(gameAdminEditModel);
         gameAdminDto.ApplicationUserName = userName;
 
         if (Id.Equals(Guid.Empty))
         {
-            var newEntityNamePlaceholderAdminDto = await EntityNamePlaceholderAdminService.AddAsync(gameAdminDto);
+            var newGameAdminDto = await GameAdminService.AddAsync(gameAdminDto);
 
-            if (newEntityNamePlaceholderAdminDto == null)
+            if (newGameAdminDto == null)
             {
                 return;
             }
 
-            NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{newEntityNamePlaceholderAdminDto.Id}");
+            NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{newGameAdminDto.Id}");
         }
         else
         {
-            await EntityNamePlaceholderAdminService.EditAsync(gameAdminDto);
+            await GameAdminService.EditAsync(gameAdminDto);
         }
     }
 
@@ -175,7 +175,7 @@
             return;
         }
 
-        await EntityNamePlaceholderAdminService.DeleteAsync(userName, Id);
+        await GameAdminService.DeleteAsync(userName, Id);
         NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-list");
     }
 
