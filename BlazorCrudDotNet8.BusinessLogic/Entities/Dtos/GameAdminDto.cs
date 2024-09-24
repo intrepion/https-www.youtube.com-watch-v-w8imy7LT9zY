@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Entities.Dtos;
 
 public class GameAdminDto
 {
