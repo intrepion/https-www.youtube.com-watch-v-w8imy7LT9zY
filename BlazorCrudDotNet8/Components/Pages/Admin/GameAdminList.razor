@@ -34,15 +34,15 @@
                 }
                 else
                 {
-                    @foreach (var EntityLowercaseNamePlaceholder in TableLowercaseNamePlaceholder)
+                    @foreach (var game in TableLowercaseNamePlaceholder)
                     {
                         <tr>
-                            <td>@EntityLowercaseNamePlaceholder.Id</td>
+                            <td>@game.Id</td>
                             @* ListItemCodePlaceholder *@
-                            @* <td>@EntityLowercaseNamePlaceholder.Title</td>
-                            <td>@EntityLowercaseNamePlaceholder.ToDoList?.Title</td> *@
+                            @* <td>@game.Title</td>
+                            <td>@game.ToDoList?.Title</td> *@
                             <td>
-                                <a href="@("/admin/UrlNamePlaceholder-edit/" + EntityLowercaseNamePlaceholder.Id)">Edit</a>
+                                <a href="@("/admin/UrlNamePlaceholder-edit/" + game.Id)">Edit</a>
                             </td>
                         </tr>
                     }
