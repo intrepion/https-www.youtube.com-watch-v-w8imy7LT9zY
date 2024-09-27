@@ -100,6 +100,7 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
 
         databaseGame.ApplicationUserUpdatedBy = user;
 
+        databaseGame.Name = gameAdminDto.Name;
         // EditDatabasePropertyCodePlaceholder
         // databaseGame.Title = gameAdminDto.Title;
         // databaseGame.NormalizedTitle = gameAdminDto.Title.ToUpperInvariant();
