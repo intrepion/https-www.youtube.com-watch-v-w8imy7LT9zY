@@ -4,6 +4,8 @@
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @attribute [StreamRendering]
 
+<PageTitle>Application Role List</PageTitle>
+
 <section>
     <h1>Application Role List</h1>
     <article>
@@ -33,11 +35,18 @@
                     @foreach (var applicationRole in applicationRoles)
                     {
                         <tr>
-                            <td>@applicationRole.Id</td>
-                            <td>@applicationRole.Name</td>
-                            <td>
-                                <a href="@("/admin/application-role-edit/" + applicationRole.Id)">Edit</a>
-                            </td>
+                            @if (applicationRole == null)
+                            {
+                                <td colspan="3">Application role is null.</td>
+                            }
+                            else
+                            {
+                                <td>@applicationRole.Id</td>
+                                <td>@applicationRole.Name</td>
+                                <td>
+                                    <a href="@("/admin/application-role-edit/" + applicationRole.Id)">Edit</a>
+                                </td>
+                            }
                         </tr>
                     }
                 }
@@ -48,7 +57,7 @@
 </section>
 
 @code {
-    List<ApplicationRole>? applicationRoles = null;
+    List<ApplicationRole>? applicationRoles;
 
     protected override async Task OnInitializedAsync()
     {
