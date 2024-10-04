@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorCrudDotNet8.Shared\BlazorCrudDotNet8.Shared.csproj" />
+    <ProjectReference Include="..\BlazorCrudDotNet8.BusinessLogic\BlazorCrudDotNet8.BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>
