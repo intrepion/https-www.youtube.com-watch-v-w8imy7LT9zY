@@ -40,6 +40,7 @@ public class GameAdminEditModel
         {
             Id = gameAdminEditModel.Id,
 
+            Name = gameAdminEditModel.Name,
             // ModelToDtoPlaceholder
             // Title = gameAdminEditModel.Title,
             // ToDoList = gameAdminEditModel.ToDoList,
