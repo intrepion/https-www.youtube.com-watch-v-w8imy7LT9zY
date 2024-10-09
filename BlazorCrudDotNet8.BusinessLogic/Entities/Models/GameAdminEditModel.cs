@@ -10,37 +10,37 @@ public class EntityNamePlaceholderAdminEditModel
     // public string Title { get; set; } = string.Empty;
     // public ToDoList? ToDoList { get; set; }
 
-    public static EntityNamePlaceholderAdminEditModel FromEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminDto EntityLowercaseNamePlaceholderAdminDto)
+    public static EntityNamePlaceholderAdminEditModel FromEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminDto gameAdminDto)
     {
-        if (EntityLowercaseNamePlaceholderAdminDto == null)
+        if (gameAdminDto == null)
         {
             return new EntityNamePlaceholderAdminEditModel();
         }
 
         return new EntityNamePlaceholderAdminEditModel
         {
-            Id = EntityLowercaseNamePlaceholderAdminDto.Id,
+            Id = gameAdminDto.Id,
 
             // DtoToModelPlaceholder
-            // Title = EntityLowercaseNamePlaceholderAdminDto.Title,
-            // ToDoList = EntityLowercaseNamePlaceholderAdminDto.ToDoList,
+            // Title = gameAdminDto.Title,
+            // ToDoList = gameAdminDto.ToDoList,
         };
     }
 
-    public static EntityNamePlaceholderAdminDto ToEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminEditModel EntityLowercaseNamePlaceholderAdminEditModel)
+    public static EntityNamePlaceholderAdminDto ToEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminEditModel gameAdminEditModel)
     {
-        if (EntityLowercaseNamePlaceholderAdminEditModel == null)
+        if (gameAdminEditModel == null)
         {
             return new EntityNamePlaceholderAdminDto();
         }
 
         return new EntityNamePlaceholderAdminDto
         {
-            Id = EntityLowercaseNamePlaceholderAdminEditModel.Id,
+            Id = gameAdminEditModel.Id,
 
             // ModelToDtoPlaceholder
-            // Title = EntityLowercaseNamePlaceholderAdminEditModel.Title,
-            // ToDoList = EntityLowercaseNamePlaceholderAdminEditModel.ToDoList,
+            // Title = gameAdminEditModel.Title,
+            // ToDoList = gameAdminEditModel.ToDoList,
         };
     }
 }
