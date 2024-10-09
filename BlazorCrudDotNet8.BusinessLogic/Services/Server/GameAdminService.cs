@@ -98,6 +98,11 @@ public class GameAdminService(ApplicationDbContext applicationDbContext) : IGame
             throw new Exception("HumanNamePlaceholder not found.");
         }
 
+        if (string.IsNullOrWhiteSpace(gameAdminDto.Name))
+        {
+            throw new Exception("Name required.");
+        }
+
         // EditRequiredPropertyCodePlaceholder
         // if (string.IsNullOrWhiteSpace(gameAdminDto.Title))
         // {
