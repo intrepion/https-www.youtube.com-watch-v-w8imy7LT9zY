@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCrudDotNet8.BusinessL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCrudDotNet8.BusinessLogic.UnitTests", "BlazorCrudDotNet8.BusinessLogic.UnitTests\BlazorCrudDotNet8.BusinessLogic.UnitTests.csproj", "{DD4502A3-FCD3-4E95-833A-CEB24331CB50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCrudDotNet8.ConsoleProject", "BlazorCrudDotNet8.ConsoleProject\BlazorCrudDotNet8.ConsoleProject.csproj", "{8FDAB949-257C-4156-88B9-94BDA3B60FAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -138,6 +140,18 @@ Global
 		{DD4502A3-FCD3-4E95-833A-CEB24331CB50}.Release|x64.Build.0 = Release|Any CPU
 		{DD4502A3-FCD3-4E95-833A-CEB24331CB50}.Release|x86.ActiveCfg = Release|Any CPU
 		{DD4502A3-FCD3-4E95-833A-CEB24331CB50}.Release|x86.Build.0 = Release|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Debug|x64.Build.0 = Debug|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Debug|x86.Build.0 = Debug|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Release|x64.ActiveCfg = Release|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Release|x64.Build.0 = Release|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Release|x86.ActiveCfg = Release|Any CPU
+		{8FDAB949-257C-4156-88B9-94BDA3B60FAD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
