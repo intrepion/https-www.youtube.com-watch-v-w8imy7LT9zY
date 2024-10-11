@@ -24,6 +24,7 @@ public partial class GameAdminPages : PageTest
         await Page.GetByRole(AriaRole.Button, new() { Name = "Create" }).ClickAsync();
         await Expect(Page).ToHaveTitleAsync("Game Modification");
 
+        await Page.GetByTestId("gameAdminEditName").FillAsync("some game");
         // ModifyPropertyCodePlaceholder
         // await Page.GetByTestId("gameAdminEditName").FillAsync("some game");
 
