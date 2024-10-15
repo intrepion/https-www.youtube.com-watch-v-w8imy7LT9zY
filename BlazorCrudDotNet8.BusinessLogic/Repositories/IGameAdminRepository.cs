@@ -3,11 +3,11 @@ using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos;
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Repositories;
 
-public interface IEntityNamePlaceholderAdminRepository
+public interface IGameAdminRepository
 {
-    Task<EntityNamePlaceholderAdminDto?> AddAsync(EntityNamePlaceholderAdminDto game);
+    Task<GameAdminDto?> AddAsync(GameAdminDto game);
     Task<bool> DeleteAsync(string userName, Guid id);
-    Task<EntityNamePlaceholderAdminDto?> EditAsync(EntityNamePlaceholderAdminDto game);
-    Task<List<EntityNamePlaceholder>?> GetAllAsync(string userName);
-    Task<EntityNamePlaceholderAdminDto?> GetByIdAsync(string userName, Guid id);
+    Task<GameAdminDto?> EditAsync(GameAdminDto game);
+    Task<List<Game>?> GetAllAsync(string userName);
+    Task<GameAdminDto?> GetByIdAsync(string userName, Guid id);
 }
