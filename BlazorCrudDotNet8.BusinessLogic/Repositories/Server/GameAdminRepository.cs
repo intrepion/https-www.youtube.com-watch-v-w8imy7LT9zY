@@ -9,14 +9,14 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
 {
     private readonly ApplicationDbContext _applicationDbContext = applicationDbContext;
 
-    public async Task<EntityNamePlaceholderAdminDto?> AddAsync(EntityNamePlaceholderAdminDto EntityLowercaseNamePlaceholderAdminDto)
+    public async Task<EntityNamePlaceholderAdminDto?> AddAsync(EntityNamePlaceholderAdminDto gameAdminDto)
     {
-        if (string.IsNullOrWhiteSpace(EntityLowercaseNamePlaceholderAdminDto.ApplicationUserName))
+        if (string.IsNullOrWhiteSpace(gameAdminDto.ApplicationUserName))
         {
             throw new Exception("UserName is required.");
         }
 
-        var user = await _applicationDbContext.Users.FirstOrDefaultAsync(x => EntityLowercaseNamePlaceholderAdminDto.ApplicationUserName.ToUpper().Equals(x.NormalizedUserName));
+        var user = await _applicationDbContext.Users.FirstOrDefaultAsync(x => gameAdminDto.ApplicationUserName.ToUpper().Equals(x.NormalizedUserName));
 
         if (user == null)
         {
@@ -24,16 +24,16 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
         }
 
         // AddRequiredPropertyCodePlaceholder
-        // if (string.IsNullOrWhiteSpace(EntityLowercaseNamePlaceholderAdminDto.Title))
+        // if (string.IsNullOrWhiteSpace(gameAdminDto.Title))
         // {
         //     throw new Exception("Title required.");
         // }
 
-        var EntityLowercaseNamePlaceholder = EntityNamePlaceholderAdminDto.ToEntityNamePlaceholder(user, EntityLowercaseNamePlaceholderAdminDto);
+        var game = EntityNamePlaceholderAdminDto.ToEntityNamePlaceholder(user, gameAdminDto);
 
         // AddDatabasePropertyCodePlaceholder
 
-        var result = await _applicationDbContext.TableNamePlaceholder.AddAsync(EntityLowercaseNamePlaceholder);
+        var result = await _applicationDbContext.TableNamePlaceholder.AddAsync(game);
         var databaseEntityNamePlaceholderAdminDto = EntityNamePlaceholderAdminDto.FromEntityNamePlaceholder(result.Entity);
         await _applicationDbContext.SaveChangesAsync();
 
@@ -71,21 +71,21 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
         return true;
     }
 
-    public async Task<EntityNamePlaceholderAdminDto?> EditAsync(EntityNamePlaceholderAdminDto EntityLowercaseNamePlaceholderAdminDto)
+    public async Task<EntityNamePlaceholderAdminDto?> EditAsync(EntityNamePlaceholderAdminDto gameAdminDto)
     {
-        if (string.IsNullOrWhiteSpace(EntityLowercaseNamePlaceholderAdminDto.ApplicationUserName))
+        if (string.IsNullOrWhiteSpace(gameAdminDto.ApplicationUserName))
         {
             throw new Exception("UserName is required.");
         }
 
-        var user = await _applicationDbContext.Users.FirstOrDefaultAsync(x => EntityLowercaseNamePlaceholderAdminDto.ApplicationUserName.ToUpper().Equals(x.NormalizedUserName));
+        var user = await _applicationDbContext.Users.FirstOrDefaultAsync(x => gameAdminDto.ApplicationUserName.ToUpper().Equals(x.NormalizedUserName));
 
         if (user == null)
         {
             throw new Exception("Authentication required.");
         }
 
-        var databaseEntityNamePlaceholder = await _applicationDbContext.TableNamePlaceholder.FindAsync(EntityLowercaseNamePlaceholderAdminDto.Id);
+        var databaseEntityNamePlaceholder = await _applicationDbContext.TableNamePlaceholder.FindAsync(gameAdminDto.Id);
 
         if (databaseEntityNamePlaceholder == null)
         {
@@ -93,7 +93,7 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
         }
 
         // EditRequiredPropertyCodePlaceholder
-        // if (string.IsNullOrWhiteSpace(EntityLowercaseNamePlaceholderAdminDto.Title))
+        // if (string.IsNullOrWhiteSpace(gameAdminDto.Title))
         // {
         //     throw new Exception("Title required.");
         // }
@@ -101,13 +101,13 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
         databaseEntityNamePlaceholder.ApplicationUserUpdatedBy = user;
 
         // EditDatabasePropertyCodePlaceholder
-        // databaseEntityNamePlaceholder.Title = EntityLowercaseNamePlaceholderAdminDto.Title;
-        // databaseEntityNamePlaceholder.NormalizedTitle = EntityLowercaseNamePlaceholderAdminDto.Title.ToUpperInvariant();
-        // databaseEntityNamePlaceholder.ToDoList = EntityLowercaseNamePlaceholderAdminDto.ToDoList;
+        // databaseEntityNamePlaceholder.Title = gameAdminDto.Title;
+        // databaseEntityNamePlaceholder.NormalizedTitle = gameAdminDto.Title.ToUpperInvariant();
+        // databaseEntityNamePlaceholder.ToDoList = gameAdminDto.ToDoList;
 
         await _applicationDbContext.SaveChangesAsync();
 
-        return EntityLowercaseNamePlaceholderAdminDto;
+        return gameAdminDto;
     }
 
     public async Task<List<EntityNamePlaceholder>?> GetAllAsync(string userName)
