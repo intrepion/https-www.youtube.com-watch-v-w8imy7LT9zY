@@ -6,12 +6,12 @@ namespace ApplicationNamePlaceholder.Controllers;
 
 [Route("api/admin/[controller]")]
 [ApiController]
-public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminRepository gameAdminRepository) : ControllerBase
+public class GameController(IGameAdminRepository gameAdminRepository) : ControllerBase
 {
-    private readonly IEntityNamePlaceholderAdminRepository _gameAdminRepository = gameAdminRepository;
+    private readonly IGameAdminRepository _gameAdminRepository = gameAdminRepository;
 
     [HttpPost]
-    public async Task<ActionResult<EntityNamePlaceholderAdminDto?>> Add(EntityNamePlaceholderAdminDto gameAdminDto)
+    public async Task<ActionResult<GameAdminDto?>> Add(GameAdminDto gameAdminDto)
     {
         var userIdentityName = User.Identity?.Name;
 
@@ -25,9 +25,9 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
             return Ok(null);
         }
 
-        var databaseEntityNamePlaceholderAdminDto = await _gameAdminRepository.AddAsync(gameAdminDto);
+        var databaseGameAdminDto = await _gameAdminRepository.AddAsync(gameAdminDto);
 
-        return Ok(databaseEntityNamePlaceholderAdminDto);
+        return Ok(databaseGameAdminDto);
     }
 
     [HttpDelete("{id}")]
@@ -51,7 +51,7 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
     }
 
     [HttpPut]
-    public async Task<ActionResult<EntityNamePlaceholderAdminDto?>> Edit(EntityNamePlaceholderAdminDto gameAdminDto)
+    public async Task<ActionResult<GameAdminDto?>> Edit(GameAdminDto gameAdminDto)
     {
         var userIdentityName = User.Identity?.Name;
 
@@ -65,13 +65,13 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
             return Ok(null);
         }
 
-        var databaseEntityNamePlaceholder = await _gameAdminRepository.EditAsync(gameAdminDto);
+        var databaseGame = await _gameAdminRepository.EditAsync(gameAdminDto);
 
-        return Ok(databaseEntityNamePlaceholder);
+        return Ok(databaseGame);
     }
 
     [HttpGet]
-    public async Task<ActionResult<EntityNamePlaceholderAdminDto>?> GetAll(string userName)
+    public async Task<ActionResult<GameAdminDto>?> GetAll(string userName)
     {
         var userIdentityName = User.Identity?.Name;
 
@@ -91,7 +91,7 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<EntityNamePlaceholderAdminDto?>> GetById(string userName, Guid id)
+    public async Task<ActionResult<GameAdminDto?>> GetById(string userName, Guid id)
     {
         var userIdentityName = User.Identity?.Name;
 
