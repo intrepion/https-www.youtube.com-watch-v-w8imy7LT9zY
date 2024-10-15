@@ -100,6 +100,7 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
 
         databaseGame.ApplicationUserUpdatedBy = user;
 
+        databaseGame.Name = gameAdminDto.Name;
         // EditDatabasePropertyCodePlaceholder
         // databaseGame.Title = gameAdminDto.Title;
         // databaseGame.NormalizedTitle = gameAdminDto.Title.ToUpperInvariant();
