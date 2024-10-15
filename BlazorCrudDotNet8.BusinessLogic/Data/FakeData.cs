@@ -1,5 +1,5 @@
-﻿using Bogus;
-using BlazorCrudDotNet8.BusinessLogic.Entities;
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities;
+using Bogus;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
