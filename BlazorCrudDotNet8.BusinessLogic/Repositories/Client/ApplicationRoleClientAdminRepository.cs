@@ -1,8 +1,8 @@
 ﻿using System.Net.Http.Json;
-using ApplicationNamePlaceholder.BusinessLogic.Entities;
-using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos;
+using BlazorCrudDotNet8.BusinessLogic.Entities;
+using BlazorCrudDotNet8.BusinessLogic.Entities.Dtos;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Client;
+namespace BlazorCrudDotNet8.BusinessLogic.Repositories.Client;
 
 public class ApplicationRoleClientAdminRepository(HttpClient httpClient) : IApplicationRoleAdminRepository
 {
