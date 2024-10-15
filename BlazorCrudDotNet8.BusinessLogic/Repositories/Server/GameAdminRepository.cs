@@ -31,6 +31,7 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
 
         var game = GameAdminDto.ToGame(user, gameAdminDto);
 
+        game.NormalizedName = gameAdminDto.Name.ToUpperInvariant();
         // AddDatabasePropertyCodePlaceholder
 
         var result = await _applicationDbContext.Games.AddAsync(game);
