@@ -92,6 +92,7 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
 
         databaseGame.ApplicationUserUpdatedBy = user;
 
+        databaseGame.Name = gameAdminDto.Name;
         // EditDatabasePropertyCodePlaceholder
 
         await _applicationDbContext.SaveChangesAsync();
