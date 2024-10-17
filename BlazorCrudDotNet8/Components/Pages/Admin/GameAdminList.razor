@@ -21,13 +21,13 @@
         </tr>
       </thead>
       <tbody>
-        @if (TableLowercaseNamePlaceholderAdminDto == null)
+        @if (gamesAdminDto == null)
         {
           <tr>
             @* LoadingCountCodePlaceholder *@
           </tr>
         }
-        else if (TableLowercaseNamePlaceholderAdminDto.Count == 0)
+        else if (gamesAdminDto.Count == 0)
         {
           <tr>
             @* ZeroCountCodePlaceholder *@
@@ -35,7 +35,7 @@
         }
         else
         {
-          @foreach (var gameAdminDto in TableLowercaseNamePlaceholderAdminDto)
+          @foreach (var gameAdminDto in gamesAdminDto)
           {
             <tr>
               <td>@gameAdminDto.Id</td>
@@ -55,7 +55,7 @@
 </section>
 
 @code {
-  List<GameAdminDto>? TableLowercaseNamePlaceholderAdminDto = null;
+  List<GameAdminDto>? gamesAdminDto = null;
 
   protected override async Task OnInitializedAsync()
   {
@@ -67,6 +67,6 @@
       return;
     }
 
-    TableLowercaseNamePlaceholderAdminDto = await GameAdminRepository.GetAllAsync(userName);
+    gamesAdminDto = await GameAdminRepository.GetAllAsync(userName);
   }
 }
