@@ -29,6 +29,14 @@
   <article>
     <EditForm class="container" Model="gameAdminEditModel" OnSubmit="HandleSubmit">
 
+      <div class="row">
+        <div class="col">
+          <label>
+            Name:
+            <InputText @bind-Value="gameAdminEditModel.Name" data-testid="gameAdminEditName" />
+          </label>
+        </div>
+      </div>
       @* EditRowCodePlaceholder *@
 
       <div class="row">
