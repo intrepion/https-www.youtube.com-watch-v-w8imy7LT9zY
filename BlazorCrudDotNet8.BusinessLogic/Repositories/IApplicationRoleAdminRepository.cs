@@ -1,6 +1,6 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos;
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities.Dtos;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Repositories;
+namespace BlazorCrudDotNet8.BusinessLogic.Repositories;
 
 public interface IApplicationRoleAdminRepository
 {
