@@ -31,6 +31,7 @@ public class GameAdminDto
             ApplicationUserUpdatedBy = applicationUser,
             Id = gameAdminDto.Id,
 
+            Name = gameAdminDto.Name,
             // DtoToEntityPropertyPlaceholder
         };
     }
