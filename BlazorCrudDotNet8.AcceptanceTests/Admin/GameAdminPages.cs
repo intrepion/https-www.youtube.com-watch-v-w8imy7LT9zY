@@ -12,21 +12,21 @@ public partial class GameAdminPages : PageTest
     {
         await Expect(Page).ToHaveTitleAsync("Home");
         await Page.GetByTestId("gameNavLink").ClickAsync();
-        await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder List");
+        await Expect(Page).ToHaveTitleAsync("Game List");
         await Page.GetByRole(AriaRole.Link, new() { Name = "Create" }).ClickAsync();
-        await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder Creation");
+        await Expect(Page).ToHaveTitleAsync("Game Creation");
 
         // CreatePropertyCodePlaceholder
 
         await Page.GetByRole(AriaRole.Button, new() { Name = "Create" }).ClickAsync();
-        await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder Modification");
+        await Expect(Page).ToHaveTitleAsync("Game Modification");
 
         // ModifyPropertyCodePlaceholder
 
         await Page.GetByRole(AriaRole.Button, new() { Name = "Modify" }).ClickAsync();
-        await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder Modification");
+        await Expect(Page).ToHaveTitleAsync("Game Modification");
         await Page.GetByRole(AriaRole.Button, new() { Name = "Remove" }).ClickAsync();
-        await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder List");
+        await Expect(Page).ToHaveTitleAsync("Game List");
     }
 
     [SetUp]
