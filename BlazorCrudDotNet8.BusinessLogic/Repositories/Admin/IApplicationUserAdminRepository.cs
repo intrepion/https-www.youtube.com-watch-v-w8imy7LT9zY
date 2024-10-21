@@ -1,6 +1,6 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities.Dtos.Admin;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin;
+namespace BlazorCrudDotNet8.BusinessLogic.Repositories.Admin;
 
 public interface IApplicationUserAdminRepository
 {
