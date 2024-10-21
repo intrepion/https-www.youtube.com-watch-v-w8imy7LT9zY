@@ -2,20 +2,20 @@
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Entities.ViewModels.Admin;
 
-public class EntityNamePlaceholderAdminEditViewModel
+public class GameAdminEditViewModel
 {
     public Guid Id { get; set; }
 
     // JustModelPropertyPlaceholder
 
-    public static EntityNamePlaceholderAdminEditViewModel FromEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminDto gameAdminDto)
+    public static GameAdminEditViewModel FromGameAdminDto(GameAdminDto gameAdminDto)
     {
         if (gameAdminDto == null)
         {
-            return new EntityNamePlaceholderAdminEditViewModel();
+            return new GameAdminEditViewModel();
         }
 
-        return new EntityNamePlaceholderAdminEditViewModel
+        return new GameAdminEditViewModel
         {
             Id = gameAdminDto.Id,
 
@@ -23,14 +23,14 @@ public class EntityNamePlaceholderAdminEditViewModel
         };
     }
 
-    public static EntityNamePlaceholderAdminDto ToEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminEditViewModel gameAdminEditViewModel)
+    public static GameAdminDto ToGameAdminDto(GameAdminEditViewModel gameAdminEditViewModel)
     {
         if (gameAdminEditViewModel == null)
         {
-            return new EntityNamePlaceholderAdminDto();
+            return new GameAdminDto();
         }
 
-        return new EntityNamePlaceholderAdminDto
+        return new GameAdminDto
         {
             Id = gameAdminEditViewModel.Id,
 
