@@ -93,6 +93,11 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
             throw new Exception("HumanNamePlaceholder not found.");
         }
 
+        if (string.IsNullOrWhiteSpace(gameAdminDto.Name))
+        {
+            throw new Exception("Name required.");
+        }
+
         // EditRequiredPropertyCodePlaceholder
 
         databaseGame.ApplicationUserUpdatedBy = user;
