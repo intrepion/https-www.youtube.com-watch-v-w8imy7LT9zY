@@ -1,6 +1,6 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin;
-using ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin.Client;
-using ApplicationNamePlaceholder.Client;
+﻿using BlazorCrudDotNet8.BusinessLogic.Repositories.Admin;
+using BlazorCrudDotNet8.BusinessLogic.Repositories.Admin.Client;
+using BlazorCrudDotNet8.Client;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
