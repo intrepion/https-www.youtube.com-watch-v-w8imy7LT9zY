@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Entities;
 
 public class Game
 {
