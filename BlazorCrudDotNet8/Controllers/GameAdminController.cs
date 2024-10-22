@@ -1,8 +1,8 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
-using ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin;
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities.Dtos.Admin;
+using BlazorCrudDotNet8.BusinessLogic.Repositories.Admin;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApplicationNamePlaceholder.Controllers;
+namespace BlazorCrudDotNet8.Controllers;
 
 [Route("api/admin/[controller]")]
 [ApiController]
