@@ -1,6 +1,6 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
+﻿using BlazorCrudDotNet8.BusinessLogic.Entities.Dtos.Admin;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Entities.ViewModels.Admin;
+namespace BlazorCrudDotNet8.BusinessLogic.Entities.ViewModels.Admin;
 
 public class ApplicationRoleAdminEditViewModel
 {
