@@ -1,8 +1,8 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Data;
-using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
+﻿using BlazorCrudDotNet8.BusinessLogic.Data;
+using BlazorCrudDotNet8.BusinessLogic.Entities.Dtos.Admin;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin.Server;
+namespace BlazorCrudDotNet8.BusinessLogic.Repositories.Admin.Server;
 
 public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IGameAdminRepository
 {
