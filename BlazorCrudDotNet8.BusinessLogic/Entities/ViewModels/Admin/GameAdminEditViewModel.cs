@@ -20,6 +20,7 @@ public class GameAdminEditViewModel
         {
             Id = gameAdminDto.Id,
 
+            Name = gameAdminDto?.Name ?? string.Empty,
             // DtoToModelPlaceholder
         };
     }
