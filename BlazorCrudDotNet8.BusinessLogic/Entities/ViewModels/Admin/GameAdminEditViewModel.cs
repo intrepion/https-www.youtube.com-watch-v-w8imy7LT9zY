@@ -36,6 +36,7 @@ public class GameAdminEditViewModel
         {
             Id = gameAdminEditViewModel.Id,
 
+            Name = gameAdminEditViewModel.Name,
             // ModelToDtoPlaceholder
         };
     }
