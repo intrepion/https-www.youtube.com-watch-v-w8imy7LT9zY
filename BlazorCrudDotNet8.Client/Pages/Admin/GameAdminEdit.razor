@@ -31,6 +31,15 @@
       <DataAnnotationsValidator />
       <ValidationSummary class="text-danger" />
 
+      <div class="row">
+        <div class="col">
+          <label>
+            Name:
+            <InputText @bind-Value="gameAdminEditVm.Name" data-testid="gameAdminEditName" />
+          </label>          <ValidationMessage For="() => gameAdminEditVm.Name" />
+
+        </div>
+      </div>
       @* EditRowCodePlaceholder *@
 
       <div class="row">
