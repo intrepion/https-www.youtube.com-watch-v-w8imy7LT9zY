@@ -93,6 +93,7 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
         databaseGame.ApplicationUserUpdatedBy = user;
 
         databaseGame.Name = gameAdminDto?.Name ?? string.Empty;
+        databaseGame.NormalizedName = gameAdminDto?.Name ?? string.Empty.ToUpperInvariant();
         // EditDatabasePropertyCodePlaceholder
 
         await _applicationDbContext.SaveChangesAsync();
