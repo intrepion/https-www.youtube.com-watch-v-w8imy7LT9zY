@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Entities.Dtos.Admin;
 
 public class ApplicationRoleAdminDto
 {
