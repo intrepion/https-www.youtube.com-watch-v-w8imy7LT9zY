@@ -22,6 +22,7 @@ public class GameAdminEditVm
         {
             Id = gameAdminDto.Id,
 
+            Name = gameAdminDto?.Name ?? string.Empty,
             // DtoToModelPlaceholder
         };
     }
