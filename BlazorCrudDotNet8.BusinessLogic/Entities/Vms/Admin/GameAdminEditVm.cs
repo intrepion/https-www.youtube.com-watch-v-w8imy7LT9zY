@@ -7,6 +7,7 @@ public class GameAdminEditVm
 {
     public Guid Id { get; set; }
 
+    [Required]
     // JustModelPropertyPlaceholder
 
     public static GameAdminEditVm FromGameAdminDto(GameAdminDto gameAdminDto)
