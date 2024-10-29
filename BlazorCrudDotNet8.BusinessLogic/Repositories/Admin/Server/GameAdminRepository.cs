@@ -22,6 +22,11 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
             throw new Exception("Authentication required.");
         }
 
+        if (string.IsNullOrWhiteSpace(gameAdminDto?.Name ?? string.Empty))
+        {
+            throw new Exception("Name required.");
+        }
+
         // AddRequiredPropertyCodePlaceholder
 
         var game = GameAdminDto.ToGame(user, gameAdminDto);
