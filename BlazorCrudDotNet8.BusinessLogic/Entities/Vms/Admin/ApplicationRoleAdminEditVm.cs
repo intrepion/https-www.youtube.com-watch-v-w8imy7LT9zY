@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
+using BlazorCrudDotNet8.BusinessLogic.Entities.Dtos.Admin;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Vms.Admin;
+namespace BlazorCrudDotNet8.BusinessLogic.Entities.Vms.Admin;
 
 public class ApplicationRoleAdminEditVm
 {
