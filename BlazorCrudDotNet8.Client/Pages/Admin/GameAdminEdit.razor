@@ -31,6 +31,14 @@
       <DataAnnotationsValidator />
       <ValidationSummary class="text-danger" />
 
+      <div class="row">
+        <div class="col">
+          <label>
+            Name:
+            <InputText @bind-Value="gameAdminEditViewModel.Name" data-testid="gameAdminEditName" />
+          </label>
+        </div>
+      </div>
       @* EditRowCodePlaceholder *@
 
       <div class="row">
