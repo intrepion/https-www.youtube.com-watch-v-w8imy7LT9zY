@@ -1,7 +1,7 @@
-﻿using BlazorCrudDotNet8.Data;
+﻿using ApplicationNamePlaceholder.BusinessLogic.Entities;
 using Microsoft.AspNetCore.Identity;
 
-namespace BlazorCrudDotNet8.Components.Account;
+namespace ApplicationNamePlaceholder.Components.Account;
 
 internal sealed class IdentityUserAccessor(UserManager<ApplicationUser> userManager, IdentityRedirectManager redirectManager)
 {
