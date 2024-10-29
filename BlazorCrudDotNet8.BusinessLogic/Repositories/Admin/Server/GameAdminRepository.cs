@@ -28,7 +28,7 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
 
         // AddDatabasePropertyCodePlaceholder
 
-        var result = await _applicationDbContext.TableNamePlaceholder.AddAsync(game);
+        var result = await _applicationDbContext.Games.AddAsync(game);
         var databaseGameAdminDto = GameAdminDto.FromGame(result.Entity);
         await _applicationDbContext.SaveChangesAsync();
 
@@ -49,7 +49,7 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
             throw new Exception("Authentication required.");
         }
 
-        var databaseGame = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var databaseGame = await _applicationDbContext.Games.FindAsync(id);
 
         if (databaseGame == null)
         {
@@ -80,7 +80,7 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
             throw new Exception("Authentication required.");
         }
 
-        var databaseGame = await _applicationDbContext.TableNamePlaceholder.FindAsync(gameAdminDto.Id);
+        var databaseGame = await _applicationDbContext.Games.FindAsync(gameAdminDto.Id);
 
         if (databaseGame == null)
         {
@@ -113,7 +113,7 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
         }
 
         return await _applicationDbContext
-            .TableNamePlaceholder
+            .Games
 
             // IncludeTableCodePlaceholder
 
@@ -136,7 +136,7 @@ public class GameAdminRepository(ApplicationDbContext applicationDbContext) : IG
             throw new Exception("Authentication required.");
         }
 
-        var result = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var result = await _applicationDbContext.Games.FindAsync(id);
 
         if (result == null)
         {
