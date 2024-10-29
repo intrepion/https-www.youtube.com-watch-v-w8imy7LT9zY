@@ -38,6 +38,7 @@ public class GameAdminEditVm
         {
             Id = gameAdminEditVm.Id,
 
+            Name = gameAdminEditVm.Name,
             // ModelToDtoPlaceholder
         };
     }
