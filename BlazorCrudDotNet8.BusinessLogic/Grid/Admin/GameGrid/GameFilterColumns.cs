@@ -2,5 +2,6 @@
 
 public enum GameFilterColumns
 {
+    Name,
     // FilterColumnCodePlaceholder
 }
