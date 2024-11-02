@@ -1,9 +1,9 @@
 using System.Diagnostics;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using ApplicationNamePlaceholder.BusinessLogic.Entities;
+using BlazorCrudDotNet8.BusinessLogic.Entities;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
+namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
 
 // Creates the correct expressions to filter and sort.
 public class ApplicationRoleGridQueryAdapter
