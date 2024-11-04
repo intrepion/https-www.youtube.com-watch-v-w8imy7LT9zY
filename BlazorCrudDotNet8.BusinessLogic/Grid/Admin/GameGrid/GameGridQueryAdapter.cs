@@ -15,6 +15,7 @@ public class GameGridQueryAdapter
     private readonly Dictionary<GameFilterColumns, Expression<Func<Game, string>>> expressions =
         new()
         {
+            { GameFilterColumns.Name, c => c != null && c.Name != null ? c.Name : string.Empty },
             // SortExpressionCodePlaceholder
             // { GameFilterColumns.Name, c => c != null && c.Name != null ? c.Name : string.Empty },
         };
