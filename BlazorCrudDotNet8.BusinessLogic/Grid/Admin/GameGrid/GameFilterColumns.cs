@@ -1,6 +1,6 @@
-﻿namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.GameGrid;
 
-public enum EntityNamePlaceholderFilterColumns
+public enum GameFilterColumns
 {
     // FilterColumnCodePlaceholder
 }
