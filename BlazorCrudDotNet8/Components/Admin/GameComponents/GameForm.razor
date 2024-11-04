@@ -74,6 +74,15 @@
 
     private void HandleNameChange(ChangeEventArgs changeEventArgs)
     {
+        if (changeEventArgs != null && changeEventArgs.Value != null)
+        {
+            Game.NormalizedName = ((string)changeEventArgs.Value).ToUpperInvariant();
+        }
+        else
+        {
+            Game.NormalizedName = "";
+        }
+
         // NormalizedCodeNamePlaceholder
     }
 
