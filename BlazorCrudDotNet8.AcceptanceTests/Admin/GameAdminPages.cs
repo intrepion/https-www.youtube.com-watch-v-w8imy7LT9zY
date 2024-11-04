@@ -29,6 +29,7 @@ public partial class GameAdminPages : PageTest
         await Page.GetByRole(AriaRole.Link, new() { Name = "aName" + aRandomString }).ClickAsync();
         await Page.GetByRole(AriaRole.Link, new() { Name = "Edit" }).ClickAsync();
 
+        await Page.GetByLabel("Name:").FillAsync("someName" + someRandomString);
         // ModifyPropertyCodePlaceholder
 
         await Page.GetByRole(AriaRole.Button, new() { Name = "Submit" }).ClickAsync();
