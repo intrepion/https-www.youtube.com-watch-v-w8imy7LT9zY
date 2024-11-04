@@ -1,4 +1,4 @@
-namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.ApplicationUserGrid;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.ApplicationUserGrid;
 
 // State of grid filters.
 public class ApplicationUserGridControls(IPageHelper pageHelper) : IApplicationUserFilters
