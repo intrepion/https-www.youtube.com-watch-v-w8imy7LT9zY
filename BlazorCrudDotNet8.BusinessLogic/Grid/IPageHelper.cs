@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Grid;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Grid;
 
 public interface IPageHelper
 {
