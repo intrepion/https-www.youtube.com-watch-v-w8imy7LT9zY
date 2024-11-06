@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCrudDotNet8.BusinessL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCrudDotNet8.Client.ComponentTests", "BlazorCrudDotNet8.Client.ComponentTests\BlazorCrudDotNet8.Client.ComponentTests.csproj", "{5773CF63-CC33-45F5-9AB5-6CA1958821DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCrudDotNet8.ConsoleProject", "BlazorCrudDotNet8.ConsoleProject\BlazorCrudDotNet8.ConsoleProject.csproj", "{3845DA8B-701A-4533-944A-C772DE898C6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,18 @@ Global
 		{5773CF63-CC33-45F5-9AB5-6CA1958821DB}.Release|x64.Build.0 = Release|Any CPU
 		{5773CF63-CC33-45F5-9AB5-6CA1958821DB}.Release|x86.ActiveCfg = Release|Any CPU
 		{5773CF63-CC33-45F5-9AB5-6CA1958821DB}.Release|x86.Build.0 = Release|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Debug|x64.Build.0 = Debug|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Debug|x86.Build.0 = Debug|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Release|x64.ActiveCfg = Release|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Release|x64.Build.0 = Release|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Release|x86.ActiveCfg = Release|Any CPU
+		{3845DA8B-701A-4533-944A-C772DE898C6D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
