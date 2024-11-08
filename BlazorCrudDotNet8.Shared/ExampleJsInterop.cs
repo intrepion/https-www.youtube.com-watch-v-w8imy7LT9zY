@@ -1,4 +1,4 @@
-using Microsoft.JSInterop;
+﻿using Microsoft.JSInterop;
 
 namespace BlazorCrudDotNet8.Shared;
 
@@ -15,7 +15,7 @@ public class ExampleJsInterop : IAsyncDisposable
 
     public ExampleJsInterop(IJSRuntime jsRuntime)
     {
-        moduleTask = new (() => jsRuntime.InvokeAsync<IJSObjectReference>(
+        moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>(
             "import", "./_content/BlazorCrudDotNet8.Shared/exampleJsInterop.js").AsTask());
     }
 
