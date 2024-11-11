@@ -89,6 +89,7 @@ entity Game {
     --
     ' KeyCodePlaceholder
     --
+    Name : string
     ' PropertyCodePlaceholder
 }
 
