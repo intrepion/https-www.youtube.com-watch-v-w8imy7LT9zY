@@ -84,6 +84,14 @@ entity ApplicationUserToken {
     Value : string
 }
 
+entity Game {
+    Id : Guid
+    --
+    ' KeyCodePlaceholder
+    --
+    ' PropertyCodePlaceholder
+}
+
 ' EntityCodePlaceholder
 
 ApplicationRole ||--o{ ApplicationUserRole
