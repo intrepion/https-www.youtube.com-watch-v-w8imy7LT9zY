@@ -1,4 +1,4 @@
-namespace ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
+namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
 
 // State of grid filters.
 public class ApplicationRoleGridControls(IPageHelper pageHelper) : IApplicationRoleFilters
