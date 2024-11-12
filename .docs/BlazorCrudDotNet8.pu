@@ -98,6 +98,7 @@ entity Game {
     ApplicationUserUpdatedBy : ApplicationUser
     ' GameKeyCodePlaceholder
     --
+    Name : string
     ' GamePropertyCodePlaceholder
 }
 
