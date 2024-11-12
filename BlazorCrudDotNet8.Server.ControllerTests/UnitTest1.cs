@@ -1,4 +1,4 @@
-namespace BlazorCrudDotNet8.Server.ControllerTests;
+﻿namespace BlazorCrudDotNet8.Server.ControllerTests;
 
 public class Tests
 {
