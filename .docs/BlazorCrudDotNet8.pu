@@ -114,6 +114,7 @@ ApplicationUserLogin }o--|| ApplicationUser
 ApplicationUserRole }o--|| ApplicationUser
 ApplicationUserToken }o--|| ApplicationUser
 
+Game }o--|| ApplicationUser
 ' RelationshipCodePlaceholder
 
 @enduml
