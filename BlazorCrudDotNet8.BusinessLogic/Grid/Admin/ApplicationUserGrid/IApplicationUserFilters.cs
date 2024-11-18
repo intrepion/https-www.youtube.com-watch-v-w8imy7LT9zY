@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationUserGrid;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.ApplicationUserGrid;
 
 public interface IApplicationUserFilters
 {
