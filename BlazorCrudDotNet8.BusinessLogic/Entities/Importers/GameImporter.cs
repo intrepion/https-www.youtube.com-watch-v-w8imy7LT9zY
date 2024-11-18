@@ -56,6 +56,7 @@ public static class GameImporter
 
             var dbGame = await context.Games.SingleOrDefaultAsync(
                 x => true
+                && x.NormalizedName == game.NormalizedName
                 // CompositeKeyCodePlaceholder
                 // && x.NormalizedName == game.NormalizedName
             );
