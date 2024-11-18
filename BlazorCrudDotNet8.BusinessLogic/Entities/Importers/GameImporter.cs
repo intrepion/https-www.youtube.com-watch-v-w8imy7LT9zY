@@ -50,6 +50,7 @@ public static class GameImporter
                 ApplicationUserUpdatedBy = applicationUserUpdatedBy,
 
                 Name = record.Name,
+                NormalizedName = record.Name.ToUpper(CultureInfo.InvariantCulture),
                 // NewEntityCodePlaceholder
                 // Name = record.Name,
                 // NormalizedName = record.Name.ToUpper(CultureInfo.InvariantCulture),
