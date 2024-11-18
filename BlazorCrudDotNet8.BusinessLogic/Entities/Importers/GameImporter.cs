@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Importers;
 
-public static class EntityNamePlaceholderImporter
+public static class GameImporter
 {
     public static async Task ImportAsync(
        ApplicationDbContext context,
@@ -41,11 +41,11 @@ public static class EntityNamePlaceholderImporter
             PrepareHeaderForMatch = x => x.Header.ToUpper(CultureInfo.InvariantCulture)
         });
 
-        var records = csv.GetRecords<EntityNamePlaceholderRecord>();
+        var records = csv.GetRecords<GameRecord>();
 
         foreach (var record in records)
         {
-            var LowercaseNamePlaceholder = new EntityNamePlaceholder
+            var LowercaseNamePlaceholder = new Game
             {
                 ApplicationUserUpdatedBy = applicationUserUpdatedBy,
 
@@ -54,19 +54,19 @@ public static class EntityNamePlaceholderImporter
                 // NormalizedName = record.Name.ToUpper(CultureInfo.InvariantCulture),
             };
 
-            var dbEntityNamePlaceholder = await context.TableNamePlaceholder.SingleOrDefaultAsync(
+            var dbGame = await context.TableNamePlaceholder.SingleOrDefaultAsync(
                 x => true
                 // CompositeKeyCodePlaceholder
                 // && x.NormalizedName == LowercaseNamePlaceholder.NormalizedName
             );
 
-            if (dbEntityNamePlaceholder is null)
+            if (dbGame is null)
             {
                 await context.TableNamePlaceholder.AddAsync(LowercaseNamePlaceholder);
             }
             else
             {
-                dbEntityNamePlaceholder.ApplicationUserUpdatedBy = applicationUserUpdatedBy;
+                dbGame.ApplicationUserUpdatedBy = applicationUserUpdatedBy;
             }
         }
 
