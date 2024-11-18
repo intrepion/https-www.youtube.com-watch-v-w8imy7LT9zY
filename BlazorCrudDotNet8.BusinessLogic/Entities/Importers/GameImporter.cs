@@ -20,9 +20,9 @@ public static class GameImporter
             return;
         }
 
-        if (context.TableNamePlaceholder is null)
+        if (context.Games is null)
         {
-            Console.WriteLine("Database table not found: context.TableNamePlaceholder");
+            Console.WriteLine("Database table not found: context.Games");
             return;
         }
 
@@ -54,7 +54,7 @@ public static class GameImporter
                 // NormalizedName = record.Name.ToUpper(CultureInfo.InvariantCulture),
             };
 
-            var dbGame = await context.TableNamePlaceholder.SingleOrDefaultAsync(
+            var dbGame = await context.Games.SingleOrDefaultAsync(
                 x => true
                 // CompositeKeyCodePlaceholder
                 // && x.NormalizedName == game.NormalizedName
@@ -62,7 +62,7 @@ public static class GameImporter
 
             if (dbGame is null)
             {
-                await context.TableNamePlaceholder.AddAsync(game);
+                await context.Games.AddAsync(game);
             }
             else
             {
