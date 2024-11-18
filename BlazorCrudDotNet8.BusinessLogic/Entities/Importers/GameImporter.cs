@@ -45,7 +45,7 @@ public static class GameImporter
 
         foreach (var record in records)
         {
-            var LowercaseNamePlaceholder = new Game
+            var game = new Game
             {
                 ApplicationUserUpdatedBy = applicationUserUpdatedBy,
 
@@ -57,12 +57,12 @@ public static class GameImporter
             var dbGame = await context.TableNamePlaceholder.SingleOrDefaultAsync(
                 x => true
                 // CompositeKeyCodePlaceholder
-                // && x.NormalizedName == LowercaseNamePlaceholder.NormalizedName
+                // && x.NormalizedName == game.NormalizedName
             );
 
             if (dbGame is null)
             {
-                await context.TableNamePlaceholder.AddAsync(LowercaseNamePlaceholder);
+                await context.TableNamePlaceholder.AddAsync(game);
             }
             else
             {
