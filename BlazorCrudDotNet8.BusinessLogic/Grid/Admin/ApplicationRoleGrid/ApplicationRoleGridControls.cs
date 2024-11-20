@@ -1,4 +1,4 @@
-namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
 
 public class ApplicationRoleGridControls(IPageHelper pageHelper) : IApplicationRoleFilters
 {
