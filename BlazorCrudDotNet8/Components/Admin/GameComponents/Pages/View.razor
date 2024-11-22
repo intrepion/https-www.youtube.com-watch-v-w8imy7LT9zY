@@ -117,9 +117,9 @@ else
 
         using var context = DbFactory.CreateDbContext();
 
-        if (context.TableNamePlaceholder is not null)
+        if (context.Games is not null)
         {
-            Game = await context.TableNamePlaceholder
+            Game = await context.Games
                 .AsNoTracking()
                 .SingleOrDefaultAsync(
                     x => x.Id == GameId);
@@ -145,12 +145,12 @@ else
 
         if (context?.Roles is not null)
         {
-            var game = await context.TableNamePlaceholder
+            var game = await context.Games
                 .SingleOrDefaultAsync(x => x.Id == GameId);
 
             if (game is not null)
             {
-                context.TableNamePlaceholder?.Remove(game);
+                context.Games?.Remove(game);
                 await context.SaveChangesAsync();
                 Loading = false;
                 Deleted = true;
