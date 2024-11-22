@@ -14,6 +14,7 @@ public class GameGridQueryAdapter
         {
             { GameFilterColumns.Id, x => !x.Id.Equals(Guid.Empty) ? x.Id.ToString() : string.Empty },
 
+            { GameFilterColumns.Name, x => x != null && x.Name != null ? x.Name : string.Empty },
             // SortExpressionCodePlaceholder
         };
 
