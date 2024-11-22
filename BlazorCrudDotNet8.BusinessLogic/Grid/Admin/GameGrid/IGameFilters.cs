@@ -1,8 +1,8 @@
-﻿namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.GameGrid;
 
-public interface IEntityNamePlaceholderFilters
+public interface IGameFilters
 {
-    EntityNamePlaceholderFilterColumns FilterColumn { get; set; }
+    GameFilterColumns FilterColumn { get; set; }
 
     bool Loading { get; set; }
 
@@ -12,5 +12,5 @@ public interface IEntityNamePlaceholderFilters
 
     bool SortAscending { get; set; }
 
-    EntityNamePlaceholderFilterColumns SortColumn { get; set; }
+    GameFilterColumns SortColumn { get; set; }
 }
