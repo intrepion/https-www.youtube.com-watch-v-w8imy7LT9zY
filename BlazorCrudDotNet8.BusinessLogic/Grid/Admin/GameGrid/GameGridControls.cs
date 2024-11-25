@@ -1,16 +1,16 @@
-namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.GameGrid;
 
-public class EntityNamePlaceholderGridControls(IPageHelper pageHelper) : IEntityNamePlaceholderFilters
+public class GameGridControls(IPageHelper pageHelper) : IGameFilters
 {
     public IPageHelper PageHelper { get; set; } = pageHelper;
 
     public bool Loading { get; set; }
 
-    public EntityNamePlaceholderFilterColumns SortColumn { get; set; } = EntityNamePlaceholderFilterColumns.Id;
+    public GameFilterColumns SortColumn { get; set; } = GameFilterColumns.Id;
 
     public bool SortAscending { get; set; } = true;
 
-    public EntityNamePlaceholderFilterColumns FilterColumn { get; set; } = EntityNamePlaceholderFilterColumns.Id;
+    public GameFilterColumns FilterColumn { get; set; } = GameFilterColumns.Id;
 
     public string? FilterText { get; set; }
 }
