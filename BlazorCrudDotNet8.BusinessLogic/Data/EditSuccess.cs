@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Data;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Data;
 
 public class EditSuccess
 {
