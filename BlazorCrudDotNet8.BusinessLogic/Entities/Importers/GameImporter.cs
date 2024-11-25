@@ -54,7 +54,7 @@ public static class GameImporter
                 // NullCheckCodePlaceholder
             )
             {
-                var LowercaseNamePlaceholder = new Game
+                var game = new Game
                 {
                     ApplicationUserUpdatedBy = applicationUserUpdatedBy,
 
@@ -68,7 +68,7 @@ public static class GameImporter
 
                 if (dbGame is null)
                 {
-                    await context.TableNamePlaceholder.AddAsync(LowercaseNamePlaceholder);
+                    await context.TableNamePlaceholder.AddAsync(game);
                 }
                 else
                 {
