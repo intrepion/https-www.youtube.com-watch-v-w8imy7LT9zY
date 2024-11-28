@@ -2,7 +2,7 @@
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 
-namespace ApplicationNamePlaceholder.AcceptanceTests;
+namespace BlazorCrudDotNet8.AcceptanceTests;
 
 [Parallelizable(ParallelScope.Self)]
 [TestFixture]
