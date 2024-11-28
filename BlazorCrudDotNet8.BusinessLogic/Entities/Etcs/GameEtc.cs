@@ -8,7 +8,7 @@ public class GameEtc : IEntityTypeConfiguration<Game>
     public void Configure(EntityTypeBuilder<Game> builder)
     {
         builder.HasOne(x => x.ApplicationUserUpdatedBy)
-            .WithMany(x => x.UpdatedTableNamePlaceholder)
+            .WithMany(x => x.UpdatedGames)
             .OnDelete(DeleteBehavior.Restrict);
 
         // EntityConfigurationCodePlaceholder
