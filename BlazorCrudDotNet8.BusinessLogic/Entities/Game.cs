@@ -10,5 +10,6 @@ public class Game
     public DateTime UpdateDateTime { get; set; }
 
     [Required]
+    public string Name { get; set; } = string.Empty;
     // ActualPropertyPlaceholder
 }
