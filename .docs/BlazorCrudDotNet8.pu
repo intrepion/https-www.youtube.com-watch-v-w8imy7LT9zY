@@ -5,6 +5,7 @@ entity Game {
     --
     ' GameKeyCodePlaceholder
     --
+    Name : string
     ' GamePropertyCodePlaceholder
 }
 
