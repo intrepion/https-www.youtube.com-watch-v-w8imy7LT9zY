@@ -1,14 +1,14 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Data;
-using ApplicationNamePlaceholder.BusinessLogic.Entities;
-using ApplicationNamePlaceholder.BusinessLogic.Grid;
-using ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
-using ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationUserGrid;
+﻿using BlazorCrudDotNet8.BusinessLogic.Data;
+using BlazorCrudDotNet8.BusinessLogic.Entities;
+using BlazorCrudDotNet8.BusinessLogic.Grid;
+using BlazorCrudDotNet8.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
+using BlazorCrudDotNet8.BusinessLogic.Grid.Admin.ApplicationUserGrid;
 
 using BlazorCrudDotNet8.BusinessLogic.Grid.Admin.GameGrid;
 // GridNamespaceCodePlaceholder
 
-using ApplicationNamePlaceholder.Components;
-using ApplicationNamePlaceholder.Components.Account;
+using BlazorCrudDotNet8.Components;
+using BlazorCrudDotNet8.Components.Account;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -106,7 +106,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(ApplicationNamePlaceholder.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(BlazorCrudDotNet8.Client._Imports).Assembly);
 
 app.MapAdditionalIdentityEndpoints();
 
