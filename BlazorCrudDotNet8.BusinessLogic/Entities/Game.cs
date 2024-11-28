@@ -11,5 +11,6 @@ public class Game
 
     [Required]
     public string Name { get; set; } = string.Empty;
+    [Required]
     // ActualPropertyPlaceholder
 }
