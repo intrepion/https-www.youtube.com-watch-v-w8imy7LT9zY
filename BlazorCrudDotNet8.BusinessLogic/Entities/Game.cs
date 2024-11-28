@@ -9,5 +9,6 @@ public class Game
     public DateTime CreateDateTime { get; set; }
     public DateTime UpdateDateTime { get; set; }
 
+    [Required]
     // ActualPropertyPlaceholder
 }
