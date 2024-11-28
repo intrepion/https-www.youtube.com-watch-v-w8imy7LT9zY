@@ -80,6 +80,7 @@ public static class DatabaseUtility
         await ApplicationUserRoleImporter.ImportAsync(applicationDbContext, adminUserPass, applicationUserRoleCsvFilePath);
         await ApplicationUserImporter.ImportAsync(applicationDbContext, adminUserPass, applicationUserCsvFilePath);
 
+        await GameImporter.ImportAsync(applicationDbContext, adminUserPass, gameCsvFilePath);
         // ImporterSecondCodePlaceholder
     }
 }
