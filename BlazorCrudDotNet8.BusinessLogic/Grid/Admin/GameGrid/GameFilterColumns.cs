@@ -4,5 +4,6 @@ public enum GameFilterColumns
 {
     Id,
 
+    Name,
     // FilterColumnCodePlaceholder
 }
