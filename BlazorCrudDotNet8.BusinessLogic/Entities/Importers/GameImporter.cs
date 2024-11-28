@@ -76,6 +76,7 @@ public static class GameImporter
                 {
                     dbGame.ApplicationUserUpdatedBy = applicationUserUpdatedBy;
 
+                    dbGame.Name = record.Name;
                     // ExistingEntityCodePlaceholder
                 }
             }
