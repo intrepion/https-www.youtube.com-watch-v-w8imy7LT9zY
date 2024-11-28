@@ -4,6 +4,7 @@ using ApplicationNamePlaceholder.BusinessLogic.Grid;
 using ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
 using ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationUserGrid;
 
+using BlazorCrudDotNet8.BusinessLogic.Grid.Admin.GameGrid;
 // GridNamespaceCodePlaceholder
 
 using ApplicationNamePlaceholder.Components;
