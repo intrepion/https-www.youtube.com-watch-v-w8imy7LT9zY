@@ -1,11 +1,11 @@
 ﻿using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
-using ApplicationNamePlaceholder.BusinessLogic.Data;
-using ApplicationNamePlaceholder.BusinessLogic.Entities.Records;
+using BlazorCrudDotNet8.BusinessLogic.Data;
+using BlazorCrudDotNet8.BusinessLogic.Entities.Records;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Importers;
+namespace BlazorCrudDotNet8.BusinessLogic.Entities.Importers;
 
 public static class ApplicationUserRoleImporter
 {
