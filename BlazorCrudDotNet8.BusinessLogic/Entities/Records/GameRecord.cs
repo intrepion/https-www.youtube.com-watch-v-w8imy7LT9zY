@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Records;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Entities.Records;
 
 public class GameRecord
 {
