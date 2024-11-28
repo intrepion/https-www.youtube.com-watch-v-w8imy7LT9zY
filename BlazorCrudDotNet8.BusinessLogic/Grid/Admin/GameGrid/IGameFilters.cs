@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
 
 public interface IEntityNamePlaceholderFilters
 {
