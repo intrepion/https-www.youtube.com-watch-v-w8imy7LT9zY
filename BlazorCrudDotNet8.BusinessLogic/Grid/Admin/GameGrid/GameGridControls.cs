@@ -1,4 +1,4 @@
-namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.GameGrid;
+﻿namespace BlazorCrudDotNet8.BusinessLogic.Grid.Admin.GameGrid;
 
 public class GameGridControls(IPageHelper pageHelper) : IGameFilters
 {
