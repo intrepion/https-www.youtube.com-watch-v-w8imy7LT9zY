@@ -1,0 +1,17 @@
+﻿@inject IGameFilters Filters
+
+@if (Column == Filters.SortColumn)
+{
+    <span>@SortSymbol</span>
+}
+else
+{
+    <span>&nbsp;</span>
+}
+
+@code {
+    [Parameter]
+    public GameFilterColumns Column { get; set; }
+
+    private string SortSymbol => Filters.SortAscending ? "🔼" : "🔽";
+}
