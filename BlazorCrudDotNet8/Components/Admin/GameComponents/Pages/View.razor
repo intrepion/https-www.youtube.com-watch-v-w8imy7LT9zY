@@ -1,0 +1,175 @@
+@page "/admin/game/view/{GameId:guid}"
+@rendermode InteractiveServer
+@inject IDbContextFactory<ApplicationDbContext> DbFactory
+@inject IPageHelper PageHelper
+@inject EditSuccess EditSuccessState
+
+<PageTitle>Game View</PageTitle>
+
+@if (NotFound && !Loading)
+{
+    <div class="alert alert-warning">Game with that id doesn't exist.</div>
+}
+else
+{
+    @if (Game is null || Loading)
+    {
+        <div class="alert alert-info">Loading...</div>
+    }
+    else
+    {
+        <h1>@Game.Id</h1>
+        @* PageHeaderCodePlaceholder *@
+
+        <br />
+        @if (EditSuccess)
+        {
+            <div class="alert alert-success">Successfully updated the Game.</div>
+        }
+        <hr />
+        <h2>Id</h2>
+        <br />
+        <h3>@Game.Id</h3>
+        <br />
+
+        <h2>Name</h2>
+        <br />
+        <h3>@Game.Name</h3>
+        <br />
+        @* PropertyCodePlaceholder *@
+
+        <a class="btn btn-primary" title="Go Back" href="admin/game/@PageHelper.Page">
+            Back to Grid
+        </a>
+        <span>&nbsp;</span>
+        @if (!Deleted)
+        {
+            <a class="btn btn-primary" href="admin/game/edit/@Game.Id" title="Edit">Edit</a>
+
+            <span>&nbsp;</span>
+            @if (!ShowConfirmation)
+            {
+                <button class="btn btn-danger" @onclick="@(() => { ShowConfirmation = true; EditSuccess = false; })">Delete</button>
+            }
+            else
+            {
+                <br />
+                <br />
+                <DeletePrompt Confirmation="@(async result => await ConfirmAsync(result))" />
+            }
+        }
+        else
+        {
+            <div class="btn btn-danger">🚫 This Game has been deleted.</div>
+        }
+    }
+}
+
+@code {
+    private bool Loading;
+
+    [Parameter]
+    public Guid GameId { get; set; }
+
+    private Guid _lastGameId;
+
+    [Parameter]
+    public bool EditSuccess { get; set; }
+
+    private Game? Game { get; set; }
+
+    private bool NotFound = false;
+
+    private bool ShowConfirmation = false;
+
+    private bool Deleted = false;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (_lastGameId != GameId)
+        {
+            EditSuccess = EditSuccessState.Success;
+            EditSuccessState.Success = false;
+            _lastGameId = GameId;
+            await LoadGameAsync();
+        }
+    }
+
+    private async Task ConfirmAsync(bool result)
+    {
+        if (result)
+        {
+            await DeleteAsync();
+        }
+        else
+        {
+            ShowConfirmation = false;
+            EditSuccess = false;
+        }
+    }
+
+    private async Task LoadGameAsync()
+    {
+        if (Loading)
+        {
+            return;
+        }
+
+        NotFound = false;
+        Game = null;
+
+        Loading = true;
+
+        using var context = DbFactory.CreateDbContext();
+
+        if (context.Games is not null)
+        {
+            Game = await context.Games
+                .AsNoTracking()
+                .SingleOrDefaultAsync(
+                    x => x.Id == GameId);
+
+            if (Game is null)
+            {
+                NotFound = true;
+            }
+        }
+
+        Loading = false;
+    }
+
+    private async Task DeleteAsync()
+    {
+        if (Loading)
+        {
+            return;
+        }
+
+        Loading = true;
+        using var context = DbFactory?.CreateDbContext();
+
+        if (context?.Roles is not null)
+        {
+            var game = await context.Games
+                .SingleOrDefaultAsync(x => x.Id == GameId);
+
+            if (game is not null)
+            {
+                context.Games?.Remove(game);
+                await context.SaveChangesAsync();
+                Loading = false;
+                Deleted = true;
+            }
+            else
+            {
+                Loading = false;
+                await LoadGameAsync();
+            }
+        }
+        else
+        {
+            Loading = false;
+            await LoadGameAsync();
+        }
+    }
+}
