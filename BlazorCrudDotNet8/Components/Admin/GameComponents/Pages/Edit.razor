@@ -1,0 +1,161 @@
+@page "/admin/game/add"
+@page "/admin/game/edit/{GameId:guid?}"
+@rendermode InteractiveServer
+@implements IDisposable
+@inject IDbContextFactory<ApplicationDbContext> DbFactory
+@inject NavigationManager Navigation
+
+<PageTitle>Game @(IsAdd ? "Add" : "Edit")</PageTitle>
+
+@if (Game is null && !Busy && !IsAdd)
+{
+  <p>Could not find Game with id @GameId.</p>
+}
+else
+{
+    @* EmulatorList="EmulatorList" *@
+  <GameForm
+    Busy="Busy" 
+    CancelRequest="Cancel"
+    DbGame="DbGame" 
+    Game="Game" 
+    IsAdd="IsAdd"
+    ValidationResult="@(async (success) => await ValidationResultAsync(success))"
+  />
+}
+
+@if (Error)
+{
+  <br />
+  <div class="alert alert-danger">Failed to @(IsAdd ? "add" : "update") the Game (@ErrorMessage).</div>
+}
+
+@code {
+  [Parameter]
+  public Guid? GameId { get; set; }
+
+  private bool IsAdd => GameId == null;
+
+  private ApplicationDbContext? Context { get; set; }
+
+  private Game? Game { get; set; }
+
+  private Game DbGame { get; set; } = new Game();
+
+  @* ListDeclarationCodePlaceholder *@
+  @* private List<Emulator> EmulatorList { get; set; } = new List<Emulator>();*@
+
+  private bool Busy;
+
+  private bool Error;
+
+  private string ErrorMessage = string.Empty;
+
+  protected override async Task OnInitializedAsync()
+  {
+    Busy = true;
+
+    try
+    {
+      Context = DbFactory.CreateDbContext();
+
+      @* LoadListCodePlaceholder *@
+      @* if (Context.Emulators != null)
+      {
+        EmulatorList = await Context.Emulators.OrderBy(e => e.Name).ToListAsync();
+      } *@
+
+      if (IsAdd)
+      {
+        Game = new();
+      }
+      else if (Context is not null && Context.Games is not null)
+      {
+        var game = await Context.Games
+            @* IncludeListCodePlaceholder *@
+            @* .Include(e => e.Emulator) *@
+            .SingleOrDefaultAsync(x => x.Id == GameId);
+
+        if (game is not null)
+        {
+          Game = game;
+        }
+      }
+    }
+    finally
+    {
+      Busy = false;
+    }
+  }
+
+  private async Task ValidationResultAsync(bool success)
+  {
+    if (Busy)
+    {
+      return;
+    }
+
+    if (!success)
+    {
+      Error = false;
+      return;
+    }
+
+    Busy = true;
+
+    try
+    {
+      if (Context is not null && Game is not null)
+      {
+        @* SetExistingCodePlaceholder *@
+        @* if (Game.Emulator != null && Game.Emulator.Id != Guid.Empty)
+        {
+          var existingEmulator = await Context.Emulators.FindAsync(Game.Emulator.Id);
+          if (existingEmulator != null)
+          {
+            Game.Emulator = existingEmulator;
+          }
+        } *@
+        
+        if (IsAdd && Context.Games != null)
+        {
+          Context.Games.Add(Game);
+        }
+        
+        await Context.SaveChangesAsync();
+      }
+
+      Navigation.NavigateTo($"/admin/game/view/{Game?.Id}");
+    }
+    catch (DbUpdateConcurrencyException dbex)
+    {
+      var dbValues = dbex.Entries[0].GetDatabaseValues();
+
+      if (dbValues is null)
+      {
+        Navigation.NavigateTo($"/admin/game/view/{Game?.Id}");
+        return;
+      }
+
+      DbGame = (Game)dbValues.ToObject();
+
+      dbex.Entries[0].OriginalValues.SetValues(dbValues);
+      Error = false;
+      Busy = false;
+    }
+    catch (Exception ex)
+    {
+      Error = true;
+      ErrorMessage = ex.Message;
+      Busy = false;
+    }
+  }
+
+  private void Cancel()
+  {
+    Busy = true;
+    Navigation.NavigateTo($"/admin/game");
+  }
+
+  public void Dispose() => Context?.Dispose();
+}

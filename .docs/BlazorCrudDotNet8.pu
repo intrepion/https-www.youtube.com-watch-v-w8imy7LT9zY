@@ -1,0 +1,16 @@
+@startuml
+
+entity Game {
+    Id : Guid
+    --
+    ' GameKeyCodePlaceholder
+    --
+    Name : string
+    ' GamePropertyCodePlaceholder
+}
+
+' EntityCodePlaceholder
+
+' RelationshipCodePlaceholder
+
+@enduml
